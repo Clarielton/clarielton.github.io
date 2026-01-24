@@ -1,0 +1,15 @@
+-index(quiz)
+   page2(resultado do quiz)
+-pagina de vendas para
+   kiwify pagamento 9,90
+     retorno para guia.html 
+ - clique no botão quero o guia de organização 30 dias
+     pagina de vendas do upsell
+      clique no 27,90 
+        pag kiwify
+         retorno para guia de 30 dias  
+
+
+
+
+FALTA COLOCAR OS REDIRECIONAMENTOS PARA OS PRODUTOS

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Organização Financeira Simples - 30 Dias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --card: #ffffff;
+            --accent: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .no-print-header {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container { max-width: 700px; margin: 0 auto; padding: 20px; }
+
+        header { text-align: center; padding: 40px 0; }
+        header h1 { font-size: 2rem; color: #0f172a; margin-bottom: 10px; }
+        header p { color: #64748b; font-size: 1.1rem; }
+
+        .week-title {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: 40px 0 20px;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-card {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid #f1f5f9;
+        }
+
+        .day-label {
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        h3 { font-size: 1.2rem; margin-bottom: 10px; color: #0f172a; }
+
+        .target {
+            background: #eff6ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #1e40af;
+            font-size: 0.95rem;
+        }
+
+        .highlight { border-left: 4px solid var(--accent); padding-left: 15px; margin: 15px 0; }
+
+        .btn-pdf {
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .conclusion {
+            background: #0f172a;
+            color: white;
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        @media print {
+            .no-print-header, .btn-pdf { display: none !important; }
+            body { background: white; padding: 0; }
+            .day-card { page-break-inside: avoid; box-shadow: none; border: 1px solid #eee; }
+            .container { max-width: 100%; }
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.5rem; }
+            .day-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print-header">
+        <button onclick="window.print()" class="btn-pdf">
+            📥 Baixar Guia em PDF
+        </button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Guia de Organização Financeira Simples</h1>
+            <p>Sua jornada de 30 dias para a estabilidade financeira</p>
+        </header>
+
+        <!-- INTRODUÇÃO -->
+        <div class="day-card" style="border-top: 5px solid var(--primary);">
+            <p><strong>Este guia não é sobre ganhar mais dinheiro.</strong> É sobre parar de perder o que você já ganha. Leia um dia por vez. Aplique no mesmo dia. Sem complicar.</p>
+        </div>
+
+        <!-- SEMANA 1 -->
+        <div class="week-title">
+            <span>🔹 SEMANA 1</span>
+            <small>Organização Mental</small>
+        </div>
+        <div class="target">🎯 Objetivo: Parar de se sentir perdido e criar clareza. Sem números ou anotações excessivas.</div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 1</span>
+            <h3>Enxergando a realidade</h3>
+            <p>Hoje você não muda nada. Apenas observa sua relação com o dinheiro.</p>
+            <p class="highlight">👉 <strong>Pergunta-chave:</strong> “Onde eu sinto que o dinheiro some?”</p>
+        </div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 2</span>
+            <h3>Identificando os gatilhos</h3>
+            <p>Perceba quando você gasta: Cansaço? Estresse? Pressa? Tédio?</p>
+            <p class="highlight">👉 O momento do gasto é mais importante que o valor.</p>
+        </div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 3</span>
+            <h3>O mito do descontrole</h3>
+            <p>Entenda isso: Você não é desorganizado. Você apenas decide no automático. Essa mudança de visão tira a culpa e devolve o controle.</p>
+        </div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 4</span>
+            <h3>Separando necessidade de impulso</h3>
+            <p>Antes de gastar, faça uma pausa curta: “Isso é necessidade agora ou impulso?”. Sem julgamento. Só consciência.</p>
+        </div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 5</span>
+            <h3>O peso emocional do dinheiro</h3>
+            <p>Perceba como o dinheiro afeta seu humor, ansiedade e decisões. Organização financeira começa na mente.</p>
+        </div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 6</span>
+            <h3>Criando uma nova relação</h3>
+            <p>Você não controla dinheiro. Você se relaciona com ele. Pense: “Que tipo de relação eu quero ter com meu dinheiro?”</p>
+        </div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 7</span>
+            <h3>Clareza conquistada</h3>
+            <p>Agora você entende seus padrões, reconhece seus gatilhos e não se sente mais perdido.</p>
+            <p class="highlight">👉 Clareza vem antes de controle.</p>
+        </div>
+
+        <!-- SEMANA 2 -->
+        <div class="week-title">
+            <span>🔹 SEMANA 2</span>
+            <small>Limites Simples</small>
+        </div>
+        <div class="target">🎯 Objetivo: Criar limites claros sem planilhas ou contas complicadas.</div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 8</span>
+            <h3>O erro dos limites rígidos</h3>
+            <p>Limites extremos quebram rápido. Limites simples duram.</p>
+        </div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 9</span>
+            <h3>Definindo seu “ponto seguro”</h3>
+            <p class="highlight">👉 <strong>Pergunta-chave:</strong> “Qual valor mensal eu consigo gastar sem ansiedade?” Esse é seu ponto seguro.</p>
+        </div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 10 ao 12</span>
+            <h3>Regra do limite flexível e freios</h3>
+            <p>Seu limite não é punição, é proteção. Escolha 1 categoria para cuidar melhor (ex: delivery) e sempre pergunte: “Isso cabe no meu ponto seguro?”</p>
+        </div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 13 e 14</span>
+            <h3>Aprendendo a dizer não</h3>
+            <p>Dizer não a um gasto hoje é dizer sim à tranquilidade amanhã. Agora você sabe até onde pode ir e não vive mais no medo.</p>
+        </div>
+
+        <!-- SEMANA 3 -->
+        <div class="week-title">
+            <span>🔹 SEMANA 3</span>
+            <small>Ajustes Inteligentes</small>
+        </div>
+        <div class="target">🎯 Objetivo: Gerar folga financeira sem sofrimento.</div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 15 e 16</span>
+            <h3>Ajuste sem dor e Regra do 80%</h3>
+            <p>Não corte tudo. Reduza uma categoria para 80% e observe o impacto. Ajustar onde dói menos é a chave para a constância.</p>
+        </div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 17 ao 19</span>
+            <h3>Substituições e Vazamentos</h3>
+            <p>Trocar hábito é mais fácil que cortar. Revise assinaturas: “Isso ainda faz sentido?”. Pequenos ajustes criam sobras invisíveis e poderosas.</p>
+        </div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 20 e 21</span>
+            <h3>Sentindo a diferença</h3>
+            <p>Menos ansiedade, mais previsibilidade. Agora seu dinheiro trabalha melhor sem esforço extra.</p>
+        </div>
+
+        <!-- SEMANA 4 -->
+        <div class="week-title">
+            <span>🔹 SEMANA 4</span>
+            <small>Estabilidade</small>
+        </div>
+        <div class="target">🎯 Objetivo: Manter o padrão sem voltar ao caos.</div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 22 e 23</span>
+            <h3>Sua rotina mínima</h3>
+            <p>O que é simples permanece. Defina 5 minutos por semana apenas para revisar mentalmente seus gastos.</p>
+        </div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 24 ao 26</span>
+            <h3>Evitando recaídas e Ajustes</h3>
+            <p>Recaídas acontecem. Volte rápido, sem culpa ou punição. Agora você sabe quanto pode gastar e quando pode respirar tranquilo.</p>
+        </div>
+
+        <div class="day-card">
+            <span class="day-label">Dia 27 ao 30</span>
+            <h3>Segurança e Novo Padrão</h3>
+            <p>A maior conquista é dormir tranquilo. Você saiu da confusão para a clareza, controle e estabilidade. Você virou consistente.</p>
+        </div>
+
+        <!-- CONCLUSÃO -->
+        <div class="conclusion">
+            <h2>Jornada Concluída</h2>
+            <p style="margin: 20px 0; opacity: 0.9;">Você não precisa ganhar mais para viver melhor. Precisa parar de perder dinheiro sem perceber.</p>
+            <p><strong>Clareza ➔ Limites ➔ Estabilidade</strong></p>
+            <button onclick="window.print()" class="btn-pdf" style="margin-top: 30px; background: white; color: #0f172a;">
+                💾 Salvar meu Guia Final
+            </button>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Sua Análise - Gestão Financeira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .highlight-box {
+            background: linear-gradient(135deg, #fff 0%, #f9fafb 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Progresso (Opcional, mas ajuda na conversão) -->
+    <div class="w-full bg-gray-200 h-2">
+        <div class="bg-green-500 h-2 w-full"></div>
+    </div>
+
+    <div class="max-w-2xl mx-auto px-6 py-12">
+        
+        <!-- Cabeçalho do Resultado -->
+        <header class="text-center mb-10">
+            <h2 class="text-sm font-bold text-green-600 uppercase tracking-widest mb-2">Análise Concluída</h2>
+            <h1 class="text-3xl font-extrabold text-gray-900 leading-tight">
+                Seu principal problema é: <br>
+                <span class="text-red-600">Gastos Invisíveis</span>
+            </h1>
+        </header>
+
+        <!-- Explicação do Resultado -->
+        <section class="highlight-box border border-gray-200 rounded-3xl p-8 shadow-sm mb-8">
+            <div class="flex items-start mb-4">
+                <div class="bg-red-100 p-2 rounded-lg mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                </div>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Isso significa que o seu dinheiro não acaba por causa de uma grande despesa, mas por <strong>pequenos gastos repetidos</strong> que passam despercebidos no dia a dia.
+                </p>
+            </div>
+
+            <ul class="space-y-3 mt-6">
+                <li class="flex items-center text-gray-600">
+                    <span class="text-red-500 mr-2">✕</span> Delivery frequente
+                </li>
+                <li class="flex items-center text-gray-600">
+                    <span class="text-red-500 mr-2">✕</span> Pequenas compras por impulso
+                </li>
+                <li class="flex items-center text-gray-600">
+                    <span class="text-red-500 mr-2">✕</span> Assinaturas que você mal usa
+                </li>
+            </ul>
+            
+            <p class="mt-6 text-gray-900 font-semibold italic">
+                Quando você percebe, o dinheiro já foi.
+            </p>
+        </section>
+
+        <!-- O Incômodo (Tensão) -->
+        <section class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl mb-10">
+            <h3 class="text-red-800 font-bold mb-2 uppercase text-xs tracking-wider">Por que isso é perigoso?</h3>
+            <p class="text-red-900 mb-4">
+                Enquanto esses vazamentos continuam invisíveis, <strong>qualquer tentativa de economizar falha.</strong>
+            </p>
+            <p class="text-red-900">
+                Não é falta de disciplina. É falta de <strong>clareza</strong>.
+            </p>
+        </section>
+
+        <!-- Ponte para a Solução -->
+        <section class="text-center space-y-6">
+            <div class="space-y-2">
+                <h2 class="text-2xl font-bold text-gray-900">A boa notícia é que isso é totalmente corrigível</h2>
+                <p class="text-gray-600">
+                    Existe um método simples que qualquer pessoa consegue aplicar para tampar esses furos e retomar o controle.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-green-100 p-6 rounded-2xl">
+                <p class="text-gray-800 font-medium">
+                    Por isso criamos o <span class="text-green-600 font-bold underline">Guia Prático de 7 Dias</span> para você finalmente entender para onde seu dinheiro está indo.
+                </p>
+            </div>
+
+            <!-- Botão de Venda -->
+            <!-- Substitua 'LINK_DA_OFERTA.html' pelo seu link de checkout ou página de vendas -->
+            <div class="pt-4">
+                <a href="https://clarielton.github.io/upsell.html" class="block w-full bg-green-600 hover:bg-green-700 text-white font-extrabold py-5 px-8 rounded-2xl text-xl shadow-xl transform transition hover:scale-105 active:scale-95 text-center">
+                    Quero entender meu dinheiro agora
+                </a>
+                <div class="flex items-center justify-center mt-6 space-x-4 opacity-50">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196161.png" alt="Visa" class="h-4">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196166.png" alt="Mastercard" class="h-4">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968630.png" alt="Pix" class="h-4">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="text-center py-10 text-gray-400 text-xs">
+        Sua segurança é nossa prioridade. <br>
+        &copy; 2023 - Sua Marca de Educação Financeira
+    </footer>
+
+</body>
+</html>
