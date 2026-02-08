@@ -133,6 +133,47 @@
 
     @media (max-width: 720px) {
       h1 { font-size: 2.3rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    /* GALERIA */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--muted);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(20%);
+      transition: filter 0.3s;
+    }
+
+    .gallery-item:hover img {
+      filter: grayscale(0%);
+    }
+
+    .gallery-caption {
+      font-family: JetBrains Mono, monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      text-align: center;
     }
   </style>
 </head>
@@ -148,7 +189,33 @@
     </p>
   </header>
 
-  <!-- FABRICACAO -->
+  <!-- GALERIA DE IMAGENS -->
+  <section class="container">
+    <h2>Interface do Sistema</h2>
+    <p>Visualização das principais telas do Hub Manager.</p>
+    
+    <div class="gallery-grid">
+      <!-- IMAGEM 1 -->
+      <div class="gallery-item">
+        <img src="assets/hubmanager/tela1.jpg" alt="Dashboard Principal" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Screenshot+1'">
+        <div class="gallery-caption">Dashboard Principal</div>
+      </div>
+
+      <!-- IMAGEM 2 -->
+      <div class="gallery-item">
+        <img src="assets/hubmanager/tela2.jpg" alt="Gestão de Tarefas" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Screenshot+2'">
+        <div class="gallery-caption">Gestão de Tarefas</div>
+      </div>
+
+      <!-- IMAGEM 3 -->
+      <div class="gallery-item">
+        <img src="assets/hubmanager/tela3.jpg" alt="Relatórios" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Screenshot+3'">
+        <div class="gallery-caption">Relatórios Detalhados</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
   <section class="container">
     <h2>Venda única, controle total</h2>
     <p>
@@ -176,6 +243,9 @@
         <li>Entrega do sistema completo</li>
         <li>Sem mensalidades ou taxas ocultas</li>
         <li>Possibilidade de personalização futura</li>
+        <li>Total de Horas do Projeto: 50</li> 
+        <li>Valor Da licença: R$ 2.250,00</li>
+
       </ul>
     </div>
   </section>
