@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarielton Pereira | Fabricante de Software</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --surface: #0a0a0a;
+            --text-main: #ffffff;
+            --text-secondary: #a1a1a1;
+            --text-muted: #555555;
+            --accent: #50fa7b; /* Verde Técnico */
+            --border: #1a1a1a;
+            --max-width: 800px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* LANG SWITCHER */
+        .lang-switcher {
+            position: fixed;
+            top: 2rem; right: 2rem;
+            z-index: 1000;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            display: flex; background: var(--surface);
+            padding: 0.3rem; border: 1px solid var(--border);
+        }
+
+        .lang-btn {
+            background: none; border: none; color: var(--text-muted);
+            padding: 0.3rem 0.6rem; cursor: pointer;
+        }
+
+        .lang-btn.active { color: var(--text-main); background: #1a1a1a; }
+
+        /* 1. HEADER (SECO) */
+        header {
+            padding: 10rem 0 6rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-flex { display: flex; align-items: center; gap: 3rem; }
+
+        .photo-frame {
+            width: 140px; height: 140px; flex-shrink: 0;
+            border: 1px solid var(--border); background: #0a0a0a;
+        }
+
+        .profile-photo {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        .brand h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 0.5rem; }
+        .brand .subtitle { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+        .brand .tagline { font-size: 1rem; color: var(--text-secondary); margin-top: 0.5rem; }
+
+        /* 2. MANIFESTO (SECO) */
+        .manifesto { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+        .manifesto p { font-size: 2rem; font-weight: 700; line-height: 1.3; color: var(--text-main); }
+        .manifesto span { color: var(--text-muted); display: block; }
+
+        /* 3. LICENCIAMENTO */
+        .licensing { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+        .label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 2rem; display: block; }
+        
+        .licensing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .licensing-info p { font-size: 1.2rem; margin-bottom: 2rem; }
+        
+        .licensing-list { list-style: none; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--text-secondary); }
+        .licensing-list li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
+        .licensing-list li::before { content: '•'; color: var(--accent); }
+
+        /* 4. SOFTWARES DISPONÍVEIS */
+        .catalog { padding: 8rem 0; border-bottom: 1px solid var(--border); }
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+        
+        .software-card {
+            border: 1px solid var(--border); padding: 2.5rem;
+            transition: 0.3s; background: var(--surface);
+        }
+        .software-card:hover { border-color: #333; transform: translateY(-3px); }
+        .software-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .software-card .desc { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 2rem; min-height: 3em; }
+        
+        .card-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 1.5rem; }
+        .card-meta strong { color: var(--text-secondary); font-weight: 400; }
+        
+        .btn-details {
+            display: inline-block; margin-top: 1.5rem;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+            color: var(--text-main); text-decoration: none;
+            border-bottom: 1px solid var(--text-main); padding-bottom: 2px;
+        }
+
+        /* 5. CONTATO */
+        .contact { padding: 8rem 0; }
+        .contact p { font-size: 1.5rem; font-weight: 600; margin-bottom: 2rem; }
+        .contact-btn {
+            display: inline-block; background: var(--text-main); color: var(--bg);
+            padding: 1rem 2rem; text-decoration: none; font-weight: 800;
+            text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.1em;
+        }
+
+        footer { padding-bottom: 4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); }
+
+        /* ANIMATION */
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 700px) {
+            header { padding-top: 6rem; }
+            .header-flex { flex-direction: column; text-align: center; }
+            .licensing-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .manifesto p { font-size: 1.5rem; }
+            .brand h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-switcher">
+        <button class="lang-btn active" id="btn-pt" onclick="switchLang('pt')">PT</button>
+        <button class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
+    </div>
+
+    <header class="container reveal">
+        <div class="header-flex">
+            <div class="photo-frame">
+                <img src="foto.jpg" alt="Clarielton Pereira" class="profile-photo" onerror="this.style.opacity='0';">
+            </div>
+            <div class="brand">
+                <h1>Clarielton Pereira</h1>
+                <p class="subtitle" data-pt="Desenvolvedor e Fabricante de Software" data-en="Software Developer & Manufacturer">Desenvolvedor e Fabricante de Software</p>
+                <p class="tagline" data-pt="Sistemas prontos vendidos com licença" data-en="Turnkey systems sold under license">Sistemas prontos vendidos com licença</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- MANIFESTO -->
+        <section class="container manifesto reveal">
+            <p id="manifesto-text"></p>
+        </section>
+
+        <!-- CURRICULO -->
+        <section class="container curriculum reveal" style="padding: 6rem 0; border-bottom: 1px solid var(--border);">
+            <span class="label" data-pt="Sobre o Desenvolvedor" data-en="About the Developer">Sobre o Desenvolvedor</span>
+            <div class="licensing-grid">
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main);" data-pt="Perfil Profissional" data-en="Professional Profile">Perfil Profissional</h3>
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);" data-pt="Atuo no desenvolvimento de softwares exclusivos, transformando necessidades complexas em produtos digitais robustos e rentáveis. Meu foco é entregar código de alta qualidade que gera valor real." data-en="I work on the development of exclusive software, transforming complex needs into robust and profitable digital products. My focus is delivering high-quality code that generates real value."></p>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main);" data-pt="Competências" data-en="Skills">Competências</h3>
+                    <ul class="licensing-list">
+                        <li>Arquitetura de Software</li>
+                        <li>Desenvolvimento Full Stack</li>
+                        <li>Modelagem de Negócios SaaS</li>
+                        <li>Integração de Sistemas</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- LICENCIAMENTO -->
+        <section class="container licensing reveal">
+            <span class="label" data-pt="Modelo de Negócio" data-en="Business Model">Modelo de Negócio</span>
+            <div class="licensing-grid">
+                <div class="licensing-info">
+                    <p data-pt="Desenvolvo softwares completos e os vendo com licença." data-en="I develop complete software solutions and sell them under license."></p>
+                </div>
+                <div>
+                    <span class="label" data-pt="Licenças disponíveis" data-en="Available licenses">Licenças disponíveis</span>
+                    <ul class="licensing-list">
+                        <li data-pt="Uso pessoal" data-en="Personal use">Uso pessoal</li>
+                        <li data-pt="Uso comercial / revenda" data-en="Commercial / Resale">Uso comercial / revenda</li>
+                        <li data-pt="Licença exclusiva (projeto único)" data-en="Exclusive license (Unique project)">Licença exclusiva (projeto único)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATÁLOGO -->
+        <section class="container catalog reveal">
+            <span class="label" data-pt="Softwares Disponíveis" data-en="Available Software">Softwares Disponíveis</span>
+            <div id="catalog-list" class="catalog-grid"></div>
+        </section>
+
+        <!-- CONTATO -->
+        <section class="container contact reveal">
+            <p data-pt="Interessado em adquirir um software? Fale comigo." data-en="Interested in acquiring software? Contact me."></p>
+            <a href="mailto:seuemail@exemplo.com" class="contact-btn" data-pt="Enviar Mensagem" data-en="Send Message">Enviar Mensagem</a>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p>© CLARIELTON PEREIRA — 2025</p>
+    </footer>
+
+    <script>
+        // CATÁLOGO DE PRODUTOS
+        const SOFTWARES = [
+            {
+                title_pt: "Hub Manager",
+                title_en: "Hub Manager",
+                desc_pt: "Sistema de organização de tarefas e projetos com foco em produtividade.",
+                desc_en: "Task and project organization system focused on productivity.",
+                lic_pt: "Exclusiva",
+                lic_en: "Exclusive",
+                link: "apresentacao-hubmanager.html"
+            }
+        ];
+
+        let lang = localStorage.getItem('lang') || 'pt';
+
+        function render() {
+            // Manifesto Update
+            const manifesto = {
+                pt: "Projeto sistemas.<span></span>Implemento soluções.<span></span>Mantenho software.<span></span>Entrego produtos funcionais.",
+                en: "I design systems.<span></span>I implement solutions.<span></span>I maintain software.<span></span>I deliver functional products."
+            };
+            document.getElementById('manifesto-text').innerHTML = manifesto[lang];
+
+            // Attributes Update
+            document.querySelectorAll('[data-pt]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+
+            // Catalog Update
+            const list = document.getElementById('catalog-list');
+            list.innerHTML = SOFTWARES.map(s => `
+                <div class="software-card">
+                    <h3>${lang === 'pt' ? s.title_pt : s.title_en}</h3>
+                    <p class="desc">${lang === 'pt' ? s.desc_pt : s.desc_en}</p>
+                    <div class="card-meta">
+                        <span class="label" style="margin-bottom:0.5rem">LICENÇAS</span>
+                        <strong>${lang === 'pt' ? s.lic_pt : s.lic_en}</strong>
+                    </div>
+                    <a href="${s.link}" class="btn-details">${lang === 'pt' ? '[ Ver detalhes ]' : '[ View details ]'}</a>
+                </div>
+            `).join('');
+
+            // Lang Buttons Update
+            document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        }
+
+        function switchLang(l) {
+            lang = l;
+            localStorage.setItem('lang', l);
+            render();
+        }
+
+        // Scroll reveal logic
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            render();
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
