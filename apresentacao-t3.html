@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>T3 Software — Licença Industrial</title>
+  <meta name="description" content="Solução para chão de fábrica. Elimine o 'achismo'. Saiba onde o lucro nasce. Licença exclusiva.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f8f9fa;
+      --border: #e9ecef;
+      --text: #212529;
+      --muted: #6c757d;
+      --accent: #0d6efd;
+      --max: 860px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* TOP CONTROLS */
+    .top-controls {
+        position: fixed;
+        top: 2rem; right: 2rem;
+        z-index: 1000;
+        display: flex; gap: 1rem;
+        align-items: center;
+    }
+
+    .control-group {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        display: flex; background: var(--surface);
+        padding: 0.3rem; border: 1px solid var(--border);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .control-btn {
+        background: none; border: none; color: var(--muted);
+        padding: 0.3rem 0.6rem; cursor: pointer;
+    }
+
+    .control-btn.active { color: var(--text); background: #e9ecef; font-weight: bold; }
+
+    header {
+      padding: 8rem 0 6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      font-family: JetBrains Mono, monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.8rem;
+    }
+
+    .tagline {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    section {
+      padding: 6rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+      color: var(--text);
+    }
+
+    li::before {
+      content: "•";
+      color: var(--accent);
+      margin-right: 0.6rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+        content: "";
+        position: absolute; top: 0; left: 0; width: 100%; height: 6px;
+        background: linear-gradient(90deg, var(--accent), #0a58ca);
+    }
+
+    .card strong {
+      display: block;
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+      color: var(--text);
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+
+    .card ul li {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .card ul li::before {
+        color: var(--accent);
+        font-weight: bold;
+        margin-right: 0.8rem;
+    }
+
+    .cta {
+      padding: 6rem 0;
+      text-align: center;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: var(--text);
+      color: var(--bg);
+      padding: 1rem 2.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      font-size: 0.75rem;
+      transition: opacity 0.2s;
+    }
+    
+    .cta a:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      padding: 3rem 0;
+      font-family: JetBrains Mono, monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      h1 { font-size: 2rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      
+      /* Mobile Adjustments */
+      .top-controls { top: 1rem; right: 1rem; gap: 0.5rem; }
+      .control-btn { padding: 0.3rem 0.5rem; font-size: 0.65rem; }
+      
+      header { padding: 6rem 0 3rem; }
+      section { padding: 4rem 0; }
+      .cta { padding: 4rem 0; }
+      
+      .card { max-width: 100%; padding: 1.5rem; }
+      .container { padding: 0 1.5rem; }
+    }
+
+    /* GALERIA */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 0.5rem;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .gallery-item img {
+      max-width: 100%;
+      height: auto;
+      max-height: 250px; /* Limita a altura para reduzir o tamanho visual */
+      object-fit: contain; /* Garante que a imagem não distorça */
+      display: block;
+      margin: 0 auto;
+      filter: grayscale(0%); /* Remove grayscale para tema claro */
+      transition: transform 0.3s;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.02);
+    }
+
+    .gallery-caption {
+      font-family: JetBrains Mono, monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
+    /* LIGHTBOX / MODAL */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .lightbox-close:hover {
+      color: var(--accent);
+    }
+    
+    .gallery-item {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-controls">
+    <div class="control-group">
+        <button class="control-btn active" id="btn-brl" onclick="switchCurrency('BRL')">R$</button>
+        <button class="control-btn" id="btn-usd" onclick="switchCurrency('USD')">$</button>
+        <button class="control-btn" id="btn-eur" onclick="switchCurrency('EUR')">€</button>
+    </div>
+    <div class="control-group">
+        <button class="control-btn active" id="btn-pt" onclick="switchLang('pt')">PT</button>
+        <button class="control-btn" id="btn-en" onclick="switchLang('en')">EN</button>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="container">
+    <h1>T3 Software</h1>
+    <div class="subtitle" data-pt="Licença Industrial" data-en="Industrial License">Licença Industrial</div>
+    <p class="tagline" data-pt="Produzir no escuro. Elimine o 'achismo' das planilhas. Saiba exatamente onde o lucro nasce e onde ele morre em cada turno, máquina e operador." data-en="It's producing in the dark. Eliminate spreadsheet guesswork. Know exactly where profit is born and where it dies in every shift, machine, and operator.">
+      É produzir no escuro. Elimine o 'achismo' das planilhas. Saiba exatamente onde o lucro nasce e onde ele morre em cada turno, máquina e operador.
+    </p>
+  </header>
+
+  <!-- VÍDEO DEMONSTRAÇÃO -->
+  <section class="container">
+    <h2 data-pt="Demonstração em Vídeo" data-en="Video Demo">Demonstração em Vídeo</h2>
+    <div style="width: 100%; background: #000; border-radius: 4px; overflow: hidden;">
+        <video controls style="width: 100%; display: block; max-height: 80vh;">
+            <source src="mp4/t3software/demo.mp4" type="video/mp4">
+            <span data-pt="Seu navegador não suporta a reprodução de vídeo." data-en="Your browser does not support video playback.">Seu navegador não suporta a reprodução de vídeo.</span>
+        </video>
+    </div>
+  </section>
+
+  <!-- GALERIA DE IMAGENS -->
+  <section class="container">
+    <h2 data-pt="Chão de Fábrica" data-en="Factory Floor">Chão de Fábrica</h2>
+    <p data-pt="Visualização das principais telas do T3 Software." data-en="Visualization of main T3 Software screens.">Visualização das principais telas do T3 Software.</p>
+    
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="img/t3software/tela1.jpeg" alt="T3 Tela 1">
+      </div>
+      <div class="gallery-item">
+        <img src="img/t3software/tela2.jpeg" alt="T3 Tela 2">
+      </div>
+      <div class="gallery-item">
+        <img src="img/t3software/tela3.jpeg" alt="T3 Tela 3">
+      </div>
+      <div class="gallery-item">
+        <img src="img/t3software/tela4.jpeg" alt="T3 Tela 4">
+      </div>
+      <div class="gallery-item">
+        <img src="img/t3software/tela5.jpeg" alt="T3 Tela 5">
+      </div>
+      <div class="gallery-item">
+        <img src="img/t3software/tela6.jpeg" alt="T3 Tela 6">
+      </div>
+      <div class="gallery-item">
+        <img src="img/t3software/tela7.jpeg" alt="T3 Tela 7">
+      </div>
+      <div class="gallery-item">
+        <img src="img/t3software/tela8.jpeg" alt="T3 Tela 8">
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="container">
+    <h2 data-pt="A realidade do agora" data-en="The reality of now">A realidade do agora</h2>
+    <p data-pt="Enquanto o ERP fecha o mês, o T3 mostra a realidade do agora." data-en="While the ERP closes the month, T3 shows the reality of now.">
+      Enquanto o ERP fecha o mês, o T3 mostra a realidade do agora.
+    </p>
+    <p data-pt="Visitei muitas fábricas e vi sempre o mesmo cenário: máquinas rodando a mil, mas gestores operando no escuro." data-en="I visited many factories and always saw the same scenario: machines running at full speed, but managers operating in the dark.">
+      "Visitei muitas fábricas e vi sempre o mesmo cenário: máquinas rodando a mil, mas gestores operando no escuro."
+    </p>
+    <p data-pt="Criamos uma solução robusta para aguentar o chão de fábrica, mas simples o suficiente para dispensar treinamentos longos. Sem depender de internet ou de um ERP gigante 'faz tudo'." data-en="We created a robust solution to withstand the factory floor, but simple enough to dispense with long training. Without relying on the internet or a giant 'do-it-all' ERP.">
+      Criamos uma solução robusta para aguentar o chão de fábrica, mas simples o suficiente para dispensar treinamentos longos.
+      Sem depender de internet ou de um ERP gigante “faz tudo”.
+    </p>
+  </section>
+
+  <!-- LICENÇA ÚNICA -->
+  <section class="container">
+    <h2 data-pt="Recursos & Modelo" data-en="Features & Model">Recursos & Modelo</h2>
+
+    <div class="card">
+      <strong data-pt="Licença Industrial" data-en="Industrial License">Licença Industrial</strong>
+      <ul>
+        <li data-pt="Visibilidade imediata de dados máquina" data-en="Immediate visibility of machine data">Visibilidade imediata de dados máquina</li>
+        <li data-pt="Rentabilidade por Ordem de Serviço (OS)" data-en="Profitability by Service Order (OS)">Rentabilidade por Ordem de Serviço (OS)</li>
+        <li data-pt="Simples e robusto para o chão de fábrica" data-en="Simple and robust for the factory floor">Simples e robusto para o chão de fábrica</li>
+        
+        <!-- Commercial & Technical Details -->
+        <li style="margin-top: 1.5rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border);"></li>
+        <li data-pt="Investimento Base: Sob Consulta" data-en="Base Investment: On Request">
+            Investimento Base: Sob Consulta
+        </li>
+      
+      
+        <li data-pt="Suporte: 3 meses incluso" data-en="Support: 3 months included">
+            Suporte: 3 meses incluso
+        </li>
+        <li style="margin-top: 1rem;">
+             <strong style="font-size:0.9rem; color:var(--text); margin-bottom:0.5rem; display:block;" data-pt="Ambiente de Operação:" data-en="Operating Environment:">Ambiente de Operação:</strong>
+        </li>
+        <li data-pt="Mobile: Somente LAN (Rede Local)" data-en="Mobile: LAN Only (Local Network)">
+            Mobile: Somente LAN (Rede Local)
+        </li>
+        <li data-pt="Desktop: Somente LAN (Rede Local)" data-en="Desktop: LAN Only (Local Network)">
+            Desktop: Somente LAN (Rede Local)
+        </li>
+      </ul>
+
+      <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+         <span data-pt="Valor Final: " data-en="Final Price: ">Valor Final: </span>
+         <span style="font-weight:800; color:var(--accent);" id="price-value">Sob Consulta</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM -->
+  <section class="container">
+    <h2 data-pt="Para quem é o T3" data-en="Who T3 is for">Para quem é o T3</h2>
+    <ul>
+      <li data-pt="Indústrias que querem saber o custo real de produção" data-en="Industries that want to know the real cost of production">Indústrias que querem saber o custo real de produção</li>
+      <li data-pt="Gestores cansados de 'achismos' e planilhas complexas" data-en="Managers tired of guesswork and complex spreadsheets">Gestores cansados de "achismos" e planilhas complexas</li>
+      <li data-pt="Empresas que buscam autonomia tecnológica" data-en="Companies seeking technological autonomy">Empresas que buscam autonomia tecnológica</li>
+    </ul>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="container">
+    <h2 data-pt="Sobre o Desenvolvedor" data-en="About the Developer">Sobre o Desenvolvedor</h2>
+    <p style="margin-bottom: 2rem;">
+      <span data-pt="Sou" data-en="I am">Sou</span> <strong>Clarielton Pereira</strong>, <span data-pt="desenvolvedor, gestor e arquiteto de software." data-en="software developer, manager, and architect.">desenvolvedor, gestor e arquiteto de software.</span>
+    </p>
+    <p style="margin-bottom: 2rem;" data-pt="Desenvolvo sistemas com foco em utilidade real, clareza técnica e licenciamento direto." data-en="I develop systems focused on real utility, technical clarity, and direct licensing.">
+      Desenvolvo sistemas com foco em utilidade real, clareza técnica
+      e licenciamento direto.
+    </p>
+    <p style="margin-bottom: 2rem;" data-pt="Participei ativamente na gestão de projeto, projeto inicial, validação de ideias, implementação e roadmap." data-en="I actively participated in project management, initial design, idea validation, implementation, and roadmap development.">
+      Participei ativamente na gestão de projeto, projeto inicial, validação de ideias, implementação e roadmap.
+    </p>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta container">
+    <a href="https://wa.me/5547996621559" data-pt="Solicitar Demonstração" data-en="Request Demo">Solicitar Demonstração</a>
+  </section>
+
+  <footer>
+    © Clarielton Pereira — <span data-pt="Desenvolvimento, Gestão e Arquitetura" data-en="Development, Management, and Architecture">Desenvolvimento, Gestão e Arquitetura</span>
+  </footer>
+
+  <!-- LIGHTBOX CONTAINER -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="Ampliação">
+  </div>
+
+  <script>
+    // Função para abrir o lightbox
+    function openLightbox(imgSrc) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      
+      lightboxImg.src = imgSrc;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Impede rolagem do fundo
+    }
+
+    // Função para fechar o lightbox
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto'; // Reativa rolagem
+    }
+
+    // Adiciona evento de clique em todas as imagens da galeria
+    document.addEventListener('DOMContentLoaded', () => {
+      const galleryItems = document.querySelectorAll('.gallery-item img');
+      
+      galleryItems.forEach(img => {
+        img.addEventListener('click', (e) => {
+          e.stopPropagation(); // Evita propagação indesejada
+          openLightbox(img.src);
+        });
+      });
+      
+      // Fecha ao pressionar ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        }
+      });
+    });
+
+    // Language Logic
+    let lang = localStorage.getItem('lang') || 'pt';
+    let currency = localStorage.getItem('currency') || 'BRL';
+
+    const PRICES = {
+        BRL: "Sob Consulta",
+        USD: "On Request",
+        EUR: "Auf Anfrage"
+    };
+
+    function render() {
+        // Attributes Update
+        document.querySelectorAll('[data-pt]').forEach(el => {
+            el.textContent = el.getAttribute(`data-${lang}`);
+        });
+
+        // Lang Buttons Update
+        document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+        // Currency Update
+        document.getElementById('price-value').textContent = PRICES[currency];
+        
+        // Currency Buttons Update
+        ['BRL', 'USD', 'EUR'].forEach(c => {
+            document.getElementById(`btn-${c.toLowerCase()}`).classList.toggle('active', currency === c);
+        });
+    }
+
+    function switchLang(l) {
+        lang = l;
+        localStorage.setItem('lang', l);
+        render();
+    }
+
+    function switchCurrency(c) {
+        currency = c;
+        localStorage.setItem('currency', c);
+        render();
+    }
+
+    // Initial Render
+    render();
+  </script>
+
+</body>
+</html>

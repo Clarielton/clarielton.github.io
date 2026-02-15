@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clarielton Pereira | Fabricante de Software</title>
+    <meta name="description" content="Portfólio profissional de Clarielton Pereira, Desenvolvedor de Software. Projetos inovadores e soluções personalizadas.">
+    <title>Clarielton Pereira | Desenvolvedor, Gestor e Arquiteto de Software</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #000000;
-            --surface: #0a0a0a;
-            --text-main: #ffffff;
-            --text-secondary: #a1a1a1;
-            --text-muted: #555555;
-            --accent: #50fa7b; /* Verde Técnico */
-            --border: #1a1a1a;
+            --bg: #ffffff;
+            --surface: #f8f9fa;
+            --text-main: #212529;
+            --text-secondary: #495057;
+            --text-muted: #6c757d;
+            --accent: #0d6efd; /* Azul Padrão */
+            --border: #e9ecef;
             --max-width: 800px;
         }
 
@@ -42,6 +43,7 @@
             font-size: 0.7rem;
             display: flex; background: var(--surface);
             padding: 0.3rem; border: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .lang-btn {
@@ -49,7 +51,7 @@
             padding: 0.3rem 0.6rem; cursor: pointer;
         }
 
-        .lang-btn.active { color: var(--text-main); background: #1a1a1a; }
+        .lang-btn.active { color: var(--text-main); background: #e9ecef; font-weight: bold; }
 
         /* 1. HEADER (SECO) */
         header {
@@ -61,15 +63,18 @@
 
         .photo-frame {
             width: 140px; height: 140px; flex-shrink: 0;
-            border: 1px solid var(--border); background: #0a0a0a;
+            border: 1px solid var(--border); background: #f8f9fa;
+            border-radius: 8px; /* Slight rounding for professional look */
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         .profile-photo {
             width: 100%; height: 100%; object-fit: cover;
-            filter: grayscale(100%);
+            filter: grayscale(0%); /* Remove grayscale for livelier look */
         }
 
-        .brand h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 0.5rem; }
+        .brand h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 0.5rem; color: var(--text-main); }
         .brand .subtitle { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
         .brand .tagline { font-size: 1rem; color: var(--text-secondary); margin-top: 0.5rem; }
 
@@ -91,34 +96,44 @@
 
         /* 4. SOFTWARES DISPONÍVEIS */
         .catalog { padding: 8rem 0; border-bottom: 1px solid var(--border); }
-        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
         
         .software-card {
             border: 1px solid var(--border); padding: 2.5rem;
             transition: 0.3s; background: var(--surface);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 8px;
         }
-        .software-card:hover { border-color: #333; transform: translateY(-3px); }
-        .software-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .software-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 12px rgba(0,0,0,0.1); }
+        .software-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main); }
         .software-card .desc { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 2rem; min-height: 3em; }
         
         .card-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 1.5rem; }
-        .card-meta strong { color: var(--text-secondary); font-weight: 400; }
+        .card-meta strong { color: var(--text-secondary); font-weight: 600; }
         
         .btn-details {
             display: inline-block; margin-top: 1.5rem;
             font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
-            color: var(--text-main); text-decoration: none;
-            border-bottom: 1px solid var(--text-main); padding-bottom: 2px;
+            color: var(--accent); text-decoration: none;
+            border-bottom: 1px solid var(--accent); padding-bottom: 2px;
+            font-weight: 600;
         }
+        .btn-details:hover { opacity: 0.8; }
 
         /* 5. CONTATO */
-        .contact { padding: 8rem 0; }
-        .contact p { font-size: 1.5rem; font-weight: 600; margin-bottom: 2rem; }
-        .contact-btn {
-            display: inline-block; background: var(--text-main); color: var(--bg);
-            padding: 1rem 2rem; text-decoration: none; font-weight: 800;
-            text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.1em;
+        .contact { padding: 4rem 0; text-align: center; }
+        .contact p { font-size: 1.2rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 0; }
+        
+        .btn-cta {
+            display: inline-block; margin-top: 2rem;
+            background: var(--text-main); color: #ffffff;
+            padding: 1rem 2.5rem; font-weight: 700;
+            text-decoration: none; border-radius: 6px;
+            transition: transform 0.2s;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
         }
+        .btn-cta:hover { transform: translateY(-3px); opacity: 0.9; }
 
         footer { padding-bottom: 4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); }
 
@@ -127,11 +142,16 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 700px) {
-            header { padding-top: 6rem; }
-            .header-flex { flex-direction: column; text-align: center; }
+            header { padding-top: 5rem; padding-bottom: 3rem; }
+            .header-flex { flex-direction: column; text-align: center; gap: 1.5rem; }
             .licensing-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .manifesto { padding: 4rem 0; }
             .manifesto p { font-size: 1.5rem; }
             .brand h1 { font-size: 2rem; }
+            .lang-switcher { top: 1rem; right: 1rem; }
+            .container { padding: 0 1.5rem; }
+            .catalog { padding: 4rem 0; }
+            .contact { padding: 3rem 0; }
         }
     </style>
 </head>
@@ -148,10 +168,17 @@
                 <img src="foto.jpg" alt="Clarielton Pereira" class="profile-photo" onerror="this.style.opacity='0';">
             </div>
             <div class="brand">
-                <h1>Clarielton Pereira</h1>
-                <p class="subtitle" data-pt="Desenvolvedor e Fabricante de Software" data-en="Software Developer & Manufacturer">Desenvolvedor e Fabricante de Software</p>
-                <p class="tagline" data-pt="Sistemas prontos vendidos com licença" data-en="Turnkey systems sold under license">Sistemas prontos vendidos com licença</p>
-            </div>
+    <h1>Clarielton Pereira</h1>
+    <p class="subtitle" data-pt="Desenvolvimento, Gestão e Arquitetura de Software" data-en="Software Development, Management, and Architecture">
+        Desenvolvimento, Gestão e Arquitetura de Software
+    </p>
+    <p class="subtitle" 
+       data-pt="Sistemas prontos para uso e revenda, com licença exclusiva e entrega direta ao comprador."
+       data-en="Ready-to-use software for use and resale, with exclusive license delivered directly to the buyer.">
+        Sistemas prontos para uso e revenda, com licença exclusiva e entrega direta ao comprador.
+    </p>
+</div>
+
         </div>
     </header>
 
@@ -167,7 +194,7 @@
             <div class="licensing-grid">
                 <div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main);" data-pt="Perfil Profissional" data-en="Professional Profile">Perfil Profissional</h3>
-                    <p style="margin-bottom: 1rem; color: var(--text-secondary);" data-pt="Atuo no desenvolvimento de softwares exclusivos, transformando necessidades complexas em produtos digitais robustos e rentáveis. Meu foco é entregar código de alta qualidade que gera valor real." data-en="I work on the development of exclusive software, transforming complex needs into robust and profitable digital products. My focus is delivering high-quality code that generates real value."></p>
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);" data-pt="Atuo no desenvolvimento, gestão e arquitetura de softwares exclusivos. Transformo necessidades complexas em produtos digitais robustos, garantindo excelência técnica e estratégica do início ao fim." data-en="I work in software development, management, and architecture. I transform complex needs into robust digital products, ensuring technical and strategic excellence from start to finish."></p>
                 </div>
                 <div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main);" data-pt="Competências" data-en="Skills">Competências</h3>
@@ -181,12 +208,34 @@
             </div>
         </section>
 
+        <!-- APRENDIZADOS -->
+        <section class="container reveal" style="padding: 4rem 0; border-bottom: 1px solid var(--border);">
+            <span class="label" data-pt="Sobre este Portfólio" data-en="About this Portfolio">Sobre este Portfólio</span>
+            <div style="max-width: 800px;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main);" data-pt="O que aprendi construindo este projeto" data-en="What I learned building this project">O que aprendi construindo este projeto</h3>
+                <ul class="licensing-list">
+                    <li data-pt="HTML5 & SEO: Estruturação semântica e meta tags para indexação no Google." data-en="HTML5 & SEO: Semantic structure and meta tags for Google indexing.">
+                        HTML5 & SEO: Estruturação semântica e meta tags para indexação no Google.
+                    </li>
+                    <li data-pt="CSS3 Moderno: Flexbox, CSS Grid, Variáveis (Themes) e Design Responsivo." data-en="Modern CSS3: Flexbox, CSS Grid, Variables (Themes), and Responsive Design.">
+                        CSS3 Moderno: Flexbox, CSS Grid, Variáveis (Themes) e Design Responsivo.
+                    </li>
+                    <li data-pt="Firebase Hosting: Configuração de rewrites, deploy via CLI e gerenciamento de cache." data-en="Firebase Hosting: Rewrites configuration, CLI deploy, and cache management.">
+                        Firebase Hosting: Configuração de rewrites, deploy via CLI e gerenciamento de cache.
+                    </li>
+                    <li data-pt="JavaScript Puro: Lógica de SPA leve, troca de idiomas e persistência de dados." data-en="Vanilla JavaScript: Lightweight SPA logic, language switching, and data persistence.">
+                        JavaScript Puro: Lógica de SPA leve, troca de idiomas e persistência de dados.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
         <!-- LICENCIAMENTO -->
         <section class="container licensing reveal">
             <span class="label" data-pt="Modelo de Negócio" data-en="Business Model">Modelo de Negócio</span>
             <div class="licensing-grid">
                 <div class="licensing-info">
-                    <p data-pt="Desenvolvo softwares completos e os vendo com licença." data-en="I develop complete software solutions and sell them under license."></p>
+                    <p data-pt="Sistemas prontos para uso e revenda, com licença exclusiva e entrega direta ao comprador." data-en="Ready-to-use software for use and resale, with exclusive license delivered directly to the buyer."></p>
                 </div>
                 <div>
                     <span class="label" data-pt="Licenças disponíveis" data-en="Available licenses">Licenças disponíveis</span>
@@ -207,8 +256,8 @@
 
         <!-- CONTATO -->
         <section class="container contact reveal">
-            <p data-pt="Interessado em adquirir um software? Fale comigo." data-en="Interested in acquiring software? Contact me."></p>
-            <a href="mailto:seuemail@exemplo.com" class="contact-btn" data-pt="Enviar Mensagem" data-en="Send Message">Enviar Mensagem</a>
+            <p data-pt="Tem um projeto diferente em mente? Vamos conversar." data-en="Have a different project in mind? Let's talk."></p>
+            <a href="https://wa.me/5547996621559" class="btn-cta" data-pt="Falar no WhatsApp" data-en="Chat on WhatsApp">Falar no WhatsApp</a>
         </section>
     </main>
 
@@ -224,19 +273,39 @@
                 title_en: "Hub Manager",
                 desc_pt: "Sistema de organização de tarefas e projetos com foco em produtividade.",
                 desc_en: "Task and project organization system focused on productivity.",
-                lic_pt: "Exclusiva",
-                lic_en: "Exclusive",
+                lic_pt: "Comercial / Revenda",
+                lic_en: "Commercial / Resale",
                 link: "apresentacao-hubmanager.html"
+            },
+            {
+                title_pt: "T3 Software",
+                title_en: "T3 Software",
+                desc_pt: "Elimine o 'achismo'. Saiba exatamente onde o lucro nasce no chão de fábrica.",
+                desc_en: "Eliminate guesswork. Know exactly where profit is born on the factory floor.",
+                lic_pt: "Industrial / Produção",
+                lic_en: "Industrial / Production",
+                link: "apresentacao-t3.html"
+            },
+            {
+                title_pt: "OrçaSmart",
+                title_en: "OrçaSmart",
+                desc_pt: "OrçaSmart é um software desenvolvido para simplificar a criação de orçamentos profissionais para empreendedores, autônomos e pequenos negócios.",
+                desc_en: "OrçaSmart is a software developed to simplify the creation of professional budgets for entrepreneurs, freelancers, and small businesses.",
+                lic_pt: "Comercial",
+                lic_en: "Commercial",
+                link: "apresentacao-orcasmart.html"
             }
         ];
+
+        
 
         let lang = localStorage.getItem('lang') || 'pt';
 
         function render() {
             // Manifesto Update
             const manifesto = {
-                pt: "Projeto sistemas.<span></span>Implemento soluções.<span></span>Mantenho software.<span></span>Entrego produtos funcionais.",
-                en: "I design systems.<span></span>I implement solutions.<span></span>I maintain software.<span></span>I deliver functional products."
+                pt: "Desenvolvo softwares.<span></span>Faço gestão.<span></span>Arquiteto soluções.<span></span>Entrego valor real.",
+                en: "I develop software.<span></span>I manage processes.<span></span>I architect solutions.<span></span>I deliver real value."
             };
             document.getElementById('manifesto-text').innerHTML = manifesto[lang];
 

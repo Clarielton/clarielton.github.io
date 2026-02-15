@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Hub Manager — Licença Exclusiva</title>
+  <meta name="description" content="Adquira a licença do código-fonte do Hub Manager. Solução completa para gestão. Disponível em BRL, USD e EUR.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -32,6 +33,30 @@
       margin: 0 auto;
       padding: 0 2rem;
     }
+
+    /* TOP CONTROLS */
+    .top-controls {
+        position: fixed;
+        top: 2rem; right: 2rem;
+        z-index: 1000;
+        display: flex; gap: 1rem;
+        align-items: center;
+    }
+
+    .control-group {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        display: flex; background: var(--surface);
+        padding: 0.3rem; border: 1px solid var(--border);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .control-btn {
+        background: none; border: none; color: var(--muted);
+        padding: 0.3rem 0.6rem; cursor: pointer;
+    }
+
+    .control-btn.active { color: var(--text); background: #e9ecef; font-weight: bold; }
 
     header {
       padding: 8rem 0 6rem;
@@ -95,16 +120,42 @@
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
-      padding: 2.5rem;
-      max-width: 500px; /* Ajustado para um card único */
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      padding: 3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+        content: "";
+        position: absolute; top: 0; left: 0; width: 100%; height: 6px;
+        background: linear-gradient(90deg, var(--accent), #0a58ca);
     }
 
     .card strong {
       display: block;
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      color: var(--accent);
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+      color: var(--text);
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+
+    .card ul li {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .card ul li::before {
+        color: var(--accent);
+        font-weight: bold;
+        margin-right: 0.8rem;
     }
 
     .cta {
@@ -121,7 +172,7 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       transition: opacity 0.2s;
     }
     
@@ -138,8 +189,19 @@
     }
 
     @media (max-width: 720px) {
-      h1 { font-size: 2.3rem; }
+      h1 { font-size: 2rem; }
       .gallery-grid { grid-template-columns: 1fr; }
+      
+      /* Mobile Adjustments */
+      .top-controls { top: 1rem; right: 1rem; gap: 0.5rem; }
+      .control-btn { padding: 0.3rem 0.5rem; font-size: 0.65rem; }
+      
+      header { padding: 6rem 0 3rem; }
+      section { padding: 4rem 0; }
+      .cta { padding: 4rem 0; }
+      
+      .card { max-width: 100%; padding: 1.5rem; }
+      .container { padding: 0 1.5rem; }
     }
 
     /* GALERIA */
@@ -234,52 +296,66 @@
 </head>
 <body>
 
+  <div class="top-controls">
+    <div class="control-group">
+        <button class="control-btn active" id="btn-brl" onclick="switchCurrency('BRL')">R$</button>
+        <button class="control-btn" id="btn-usd" onclick="switchCurrency('USD')">$</button>
+        <button class="control-btn" id="btn-eur" onclick="switchCurrency('EUR')">€</button>
+    </div>
+    <div class="control-group">
+        <button class="control-btn active" id="btn-pt" onclick="switchLang('pt')">PT</button>
+        <button class="control-btn" id="btn-en" onclick="switchLang('en')">EN</button>
+    </div>
+  </div>
+
   <!-- HEADER -->
   <header class="container">
     <h1>Hub Manager</h1>
-    <div class="subtitle">Software com licença exclusiva</div>
-    <p class="tagline">
+    <div class="subtitle" data-pt="Software com licença comercial/revenda" data-en="Commercial/Resale License Software">Software com licença comercial/revenda</div>
+    <p class="tagline" data-pt="Sistema de organização de tarefas vendido como projeto único. 
+      Apenas 10 unidades disponíveis para aquisição." data-en="Task organization system sold as a one-off project.
+Only 10 units available for purchase.">
       Sistema de organização de tarefas vendido como projeto único. 
-      Após a aquisição, o sistema deixa de ser comercializado.
+      Apenas 10 unidades disponíveis para aquisição.
     </p>
   </header>
 
   <!-- GALERIA DE IMAGENS -->
   <section class="container">
-    <h2>Interface do Sistema</h2>
-    <p>Visualização das principais telas do Hub Manager.</p>
+    <h2 data-pt="Interface do Sistema" data-en="System Interface">Interface do Sistema</h2>
+    <p data-pt="Visualização das principais telas do Hub Manager." data-en="Visualization of main Hub Manager screens.">Visualização das principais telas do Hub Manager.</p>
     
     <div class="gallery-grid">
       <!-- IMAGEM 1 -->
       <div class="gallery-item">
-        <img src="tela1.jpg" alt="Dashboard Principal" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Screenshot+1'">
-        <div class="gallery-caption">Dashboard Principal</div>
+        <img src="img/hubmanager/tela1.jpg" alt="Dashboard Principal" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Screenshot+1'">
+        <div class="gallery-caption" data-pt="Dashboard Principal" data-en="Main Dashboard">Dashboard Principal</div>
       </div>
 
       <!-- IMAGEM 2 -->
       <div class="gallery-item">
-        <img src="tela2.jpg" alt="Gestão de Tarefas" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Screenshot+2'">
-        <div class="gallery-caption">Gestão de Tarefas</div>
+        <img src="img/hubmanager/tela2.jpg" alt="Gestão de Tarefas" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Screenshot+2'">
+        <div class="gallery-caption" data-pt="Gestão de Tarefas" data-en="Task Management">Gestão de Tarefas</div>
       </div>
 
       <!-- IMAGEM 3 -->
       <div class="gallery-item">
-        <img src="tela3.jpg" alt="Relatórios" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Screenshot+3'">
-        <div class="gallery-caption">Relatórios Detalhados</div>
+        <img src="img/hubmanager/tela3.jpg" alt="Relatórios" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Screenshot+3'">
+        <div class="gallery-caption" data-pt="Relatórios Detalhados" data-en="Detailed Reports">Relatórios Detalhados</div>
       </div>
     </div>
   </section>
 
   <!-- MANIFESTO -->
   <section class="container">
-    <h2>Venda única, controle total</h2>
-    <p>
+    <h2 data-pt="Venda única, controle total" data-en="One-time sale, total control">Venda única, controle total</h2>
+    <p data-pt="O Hub Manager não funciona por assinatura e não é um serviço compartilhado." data-en="Hub Manager does not work by subscription and is not a shared service.">
       O Hub Manager não funciona por assinatura e não é um serviço compartilhado.
     </p>
-    <p>
+    <p data-pt="É um ativo de software disponibilizado sob regime de licença Exclusiva." data-en="It is a software asset available under an Exclusive license.">
       É um ativo de software disponibilizado sob regime de licença Exclusiva.
     </p>
-    <p>
+    <p data-pt="Ao adquirir esta licença, o comprador assume a propriedade sobre a instância, recebendo o sistema completo para uso ou exploração comercial própria." data-en="Upon acquiring this license, the buyer assumes ownership of the instance, receiving the complete system for their own use or commercial exploitation.">
       Ao adquirir esta licença, o comprador assume a propriedade sobre a instância,
       recebendo o sistema completo para uso ou exploração comercial própria.
     </p>
@@ -287,58 +363,63 @@
 
   <!-- LICENÇA ÚNICA -->
   <section class="container">
-    <h2>Modelo de aquisição</h2>
+    <h2 data-pt="Modelo de aquisição" data-en="Acquisition Model">Modelo de aquisição</h2>
 
     <div class="card">
-      <strong>Licença exclusiva</strong>
+      <strong data-pt="Licença Comercial/Revenda" data-en="Commercial/Resale License">Licença Comercial/Revenda</strong>
       <ul>
-        <li>Venda única do sistema</li>
-        <li>O software sai de circulação comercial</li>
-        <li>Exclusividade total do comprador</li>
-        <li>Entrega do sistema completo</li>
-        <li>Sem mensalidades ou taxas ocultas</li>
-        <li>Possibilidade de personalização futura</li>
-        <li>Total de Horas do Projeto: 50</li> 
-        <li>Valor Da licença: R$ 2.250,00</li>
-
+        <li data-pt="10 unidades do sistema" data-en="10 units of the system">10 unidades do sistema</li>
+        <li data-pt="Nome unico incluso " data-en="Unique name included">Nome unico incluso </li>
+        <li data-pt="Sai de circulação comercial após 10 vendas" data-en="Software is removed from commercial circulation after 10 sales">O software sai de circulação comercial após 10 vendas</li>
+        <li data-pt="Exclusividade total do comprador" data-en="Total buyer exclusivity, each unit with a unique name">Exclusividade total do comprador, cada unidade com nome unico</li>
+        <li data-pt="Entrega do sistema completo" data-en="Complete system delivery">Entrega do sistema completo</li>
+        <li data-pt="Sem mensalidades ou taxas ocultas" data-en="No monthly fees or hidden costs">Sem mensalidades ou taxas ocultas</li>
+        <li data-pt="Possibilidade de personalização futura" data-en="Possibility of future customization">Possibilidade de personalização futura</li>
+        <li data-pt="Ambiente de Operação: Desktop" data-en="Operation Environment: Desktop">Ambiente de Operação: Desktop</li>
+      
+        <li>
+            <span data-pt="Valor da licença: " data-en="License Value: ">Valor da licença: </span>
+            <span style="font-weight:800; color:var(--accent);" id="price-value">Sob Consulta</span>
+        </li>
       </ul>
     </div>
   </section>
 
   <!-- PARA QUEM -->
   <section class="container">
-    <h2>Para quem este projeto faz sentido</h2>
+    <h2 data-pt="Para quem este projeto faz sentido" data-en="Who this project makes sense for">Para quem este projeto faz sentido</h2>
     <ul>
-      <li>Empreendedores que querem possuir um software próprio</li>
-      <li>Empresas que precisam de uma solução exclusiva e privada</li>
-      <li>Quem busca um ativo digital para revenda ou marca própria</li>
-      <li>Quem não quer depender de plataformas SaaS ou renovações anuais</li>
+      <li data-pt="Empreendedores que querem possuir um software próprio" data-en="Entrepreneurs who want to own their own software">Empreendedores que querem possuir um software próprio</li>
+      <li data-pt="Empresas que precisam de uma solução exclusiva e privada" data-en="Companies needing an exclusive and private solution">Empresas que precisam de uma solução exclusiva e privada</li>
+      <li data-pt="Quem busca um ativo digital para revenda ou marca própria" data-en="Those seeking a digital asset for resale or private label">Quem busca um ativo digital para revenda ou marca própria</li>
+      <li data-pt="Quem não quer depender de plataformas SaaS ou renovações anuais" data-en="Those who don't want to depend on SaaS platforms or annual renewals">Quem não quer depender de plataformas SaaS ou renovações anuais</li>
     </ul>
   </section>
 
   <!-- SOBRE -->
   <section class="container">
-    <h2>Sobre o fabricante</h2>
-    <p>
-      Sou <strong>Clarielton Pereira</strong>, fabricante e arquiteto de software.
+    <h2 data-pt="Sobre o Desenvolvedor" data-en="About the Developer">Sobre o Desenvolvedor</h2>
+    <p style="margin-bottom: 2rem;">
+      <span data-pt="Sou" data-en="I am">Sou</span> <strong>Clarielton Pereira</strong>, <span data-pt="desenvolvedor, gestor e arquiteto de software." data-en="software developer, manager, and architect.">desenvolvedor, gestor e arquiteto de software.</span>
     </p>
-    <p>
+
+    <p style="margin-bottom: 2rem;" data-pt="Desenvolvo sistemas com foco em utilidade real, clareza técnica e licenciamento direto." data-en="I develop systems focused on real utility, technical clarity, and direct licensing.">
       Desenvolvo sistemas com foco em utilidade real, clareza técnica
       e licenciamento direto.
     </p>
-    <p>
-      Este projeto foi desenvolvido para ser entregue como um produto finalizado
-      a um único interessado, garantindo a exclusividade da solução.
+
+    <p style="margin-bottom: 2rem;" data-pt="Este projeto foi desenvolvido para ser entregue como um produto para 10 pessoas, garantindo a exclusividade da solução. Já esta com dois idiomas eng/ptbr, podendo assim aumentar seu alcance." data-en="This project was developed to be delivered as a product for 10 people, guaranteeing the exclusivity of the solution. It is already available in a bilingual version (English/Portuguese), thus increasing its reach.">
+      Este projeto foi desenvolvido para ser entregue como um produto para 10 pessoas, garantindo a exclusividade da solução. Já esta com dois idiomas eng/ptbr, podendo assim aumentar seu alcance.
     </p>
   </section>
 
   <!-- CTA -->
   <section class="cta container">
-    <a href="https://wa.me/5547996621559">Falar sobre aquisição</a>
+    <a href="https://wa.me/5547996621559" data-pt="Fale comigo pelo WhatsApp " data-en="WhatsApp">WhatsApp</a>
   </section>
 
   <footer>
-    © Clarielton Pereira — Fabricante de Software
+    © Clarielton Pereira — <span data-pt="Desenvolvimento, Gestão e Arquitetura" data-en="Development, Management, and Architecture">Desenvolvimento, Gestão e Arquitetura</span>
   </footer>
 
   <!-- LIGHTBOX CONTAINER -->
@@ -383,6 +464,50 @@
         }
       });
     });
+
+    // Language Logic
+    let lang = localStorage.getItem('lang') || 'pt';
+    let currency = localStorage.getItem('currency') || 'BRL';
+
+    const PRICES = {
+        BRL: "Sob Consulta",
+        USD: "On Request",
+        EUR: "Auf Anfrage"
+    };
+
+    function render() {
+        // Attributes Update
+        document.querySelectorAll('[data-pt]').forEach(el => {
+            el.textContent = el.getAttribute(`data-${lang}`);
+        });
+
+        // Lang Buttons Update
+        document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+        // Currency Update
+        document.getElementById('price-value').textContent = PRICES[currency];
+        
+        // Currency Buttons Update
+        ['BRL', 'USD', 'EUR'].forEach(c => {
+            document.getElementById(`btn-${c.toLowerCase()}`).classList.toggle('active', currency === c);
+        });
+    }
+
+    function switchLang(l) {
+        lang = l;
+        localStorage.setItem('lang', l);
+        render();
+    }
+
+    function switchCurrency(c) {
+        currency = c;
+        localStorage.setItem('currency', c);
+        render();
+    }
+
+    // Initial Render
+    render();
   </script>
 
 </body>
