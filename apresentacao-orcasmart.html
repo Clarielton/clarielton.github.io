@@ -42,6 +42,10 @@
         align-items: center;
     }
 
+    .top-controls .control-group:first-child {
+        display: none;
+    }
+
     .control-group {
         font-family: 'JetBrains Mono', monospace;
         font-size: 0.7rem;
@@ -342,7 +346,7 @@
         <li data-pt="Sem mensalidades ou taxas ocultas" data-en="No monthly fees or hidden costs">Sem mensalidades ou taxas ocultas</li>
         <li data-pt="Possibilidade de personalização futura" data-en="Possibility of future customization">Possibilidade de personalização futura</li>
         <li data-pt="Nome único incluso" data-en="Unique name included">Nome único incluso</li>
-        <li>
+        <li style="display:none;">
             <span data-pt="Valor da licença: " data-en="License Value: ">Valor da licença: </span>
             <span style="font-weight:800; color:var(--accent);" id="price-value">Sob Consulta</span>
         </li>
