@@ -10,12 +10,12 @@
 
   <style>
     :root {
-      --bg: #ffffff;
-      --surface: #f8f9fa;
-      --border: #e9ecef;
-      --text: #212529;
-      --muted: #6c757d;
-      --accent: #0d6efd;
+      --bg: #020617;
+      --surface: #02081b;
+      --border: rgba(148,163,184,0.25);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #3b82f6;
       --max: 860px;
     }
 
@@ -60,7 +60,9 @@
 
     header {
       padding: 8rem 0 6rem;
-      border-bottom: 1px solid var(--border);
+      background: radial-gradient(1000px 400px at 20% 0%, rgba(59,130,246,0.2), transparent 60%), #0f172a;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: #e5e7eb;
     }
 
     h1 {
@@ -72,7 +74,7 @@
     .subtitle {
       font-family: JetBrains Mono, monospace;
       font-size: 0.8rem;
-      color: var(--muted);
+      color: #cbd5e1;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-top: 0.8rem;
@@ -81,12 +83,12 @@
     .tagline {
       margin-top: 1.5rem;
       font-size: 1.2rem;
-      color: var(--muted);
+      color: #94a3b8;
       max-width: 620px;
     }
 
     section {
-      padding: 6rem 0;
+      padding: 7rem 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -378,40 +380,23 @@
 
   <!-- LICENÇA ÚNICA -->
   <section class="container">
-    <h2 data-pt="Recursos & Modelo" data-en="Features & Model">Recursos & Modelo</h2>
+    <h2 data-pt="Modelo de aquisição" data-en="Acquisition Model">Modelo de aquisição</h2>
 
     <div class="card">
       <strong data-pt="Licença Industrial" data-en="Industrial License">Licença Industrial</strong>
       <ul>
-        <li data-pt="Visibilidade imediata de dados máquina" data-en="Immediate visibility of machine data">Visibilidade imediata de dados máquina</li>
-        <li data-pt="Rentabilidade por Ordem de Serviço (OS)" data-en="Profitability by Service Order (OS)">Rentabilidade por Ordem de Serviço (OS)</li>
-        <li data-pt="Simples e robusto para o chão de fábrica" data-en="Simple and robust for the factory floor">Simples e robusto para o chão de fábrica</li>
-        
-        <!-- Commercial & Technical Details -->
-        <li style="margin-top: 1.5rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border);"></li>
-        <li data-pt="Investimento Base: Sob Consulta" data-en="Base Investment: On Request">
-            Investimento Base: Sob Consulta
-        </li>
-      
-      
-        <li data-pt="Suporte: 3 meses incluso" data-en="Support: 3 months included">
-            Suporte: 3 meses incluso
-        </li>
-        <li style="margin-top: 1rem;">
-             <strong style="font-size:0.9rem; color:var(--text); margin-bottom:0.5rem; display:block;" data-pt="Ambiente de Operação:" data-en="Operating Environment:">Ambiente de Operação:</strong>
-        </li>
-        <li data-pt="Mobile: Somente LAN (Rede Local)" data-en="Mobile: LAN Only (Local Network)">
-            Mobile: Somente LAN (Rede Local)
-        </li>
-        <li data-pt="Desktop: Somente LAN (Rede Local)" data-en="Desktop: LAN Only (Local Network)">
-            Desktop: Somente LAN (Rede Local)
+        <li data-pt="Entrega do sistema completo" data-en="Complete system delivery">Entrega do sistema completo</li>
+        <li data-pt="Sem mensalidades ou taxas ocultas" data-en="No monthly fees or hidden costs">Sem mensalidades ou taxas ocultas</li>
+        <li data-pt="Possibilidade de personalização futura" data-en="Possibility of future customization">Possibilidade de personalização futura</li>
+        <li style="display:none;">
+            <span data-pt="Valor da licença: " data-en="License Value: ">Valor da licença: </span>
+            <span style="font-weight:800; color:var(--accent);" id="price-value">Sob Consulta</span>
         </li>
       </ul>
-
-      <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border);">
-         <span data-pt="Valor Final: " data-en="Final Price: ">Valor Final: </span>
-         <span style="font-weight:800; color:var(--accent);" id="price-value">Sob Consulta</span>
-      </div>
+      <p style="margin-top: 1.5rem; font-size:0.95rem; color:var(--muted);">
+         <strong style="font-size:0.9rem; color:var(--text); margin-right:0.3rem;" data-pt="Ambiente de Operação:" data-en="Operating Environment:">Ambiente de Operação:</strong>
+         <span data-pt="Mobile e Desktop: Somente LAN (Rede Local)" data-en="Mobile and Desktop: LAN Only (Local Network)">Mobile e Desktop: Somente LAN (Rede Local)</span>
+      </p>
     </div>
   </section>
 
@@ -442,7 +427,7 @@
 
   <!-- CTA -->
   <section class="cta container">
-    <a href="https://wa.me/5547996621559" data-pt="Solicitar Demonstração" data-en="Request Demo">Solicitar Demonstração</a>
+    <a href="https://wa.me/5547996621559" data-pt="Entre em contato pelo WhatsApp" data-en="WhatsApp Contact">Entre em contato pelo WhatsApp</a>  
   </section>
 
   <footer>

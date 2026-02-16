@@ -10,12 +10,12 @@
 
   <style>
     :root {
-      --bg: #ffffff;
-      --surface: #f8f9fa;
-      --border: #e9ecef;
-      --text: #212529;
-      --muted: #6c757d;
-      --accent: #0d6efd;
+      --bg: #020617;
+      --surface: #02081b;
+      --border: rgba(148,163,184,0.25);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #3b82f6;
       --max: 860px;
     }
 
@@ -60,7 +60,9 @@
 
     header {
       padding: 8rem 0 6rem;
-      border-bottom: 1px solid var(--border);
+      background: radial-gradient(1000px 400px at 20% 0%, rgba(59,130,246,0.2), transparent 60%), #0f172a;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: #e5e7eb;
     }
 
     h1 {
@@ -72,7 +74,7 @@
     .subtitle {
       font-family: JetBrains Mono, monospace;
       font-size: 0.8rem;
-      color: var(--muted);
+      color: #cbd5e1;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-top: 0.8rem;
@@ -81,12 +83,12 @@
     .tagline {
       margin-top: 1.5rem;
       font-size: 1.2rem;
-      color: var(--muted);
+      color: #94a3b8;
       max-width: 620px;
     }
 
     section {
-      padding: 6rem 0;
+      padding: 7rem 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -312,11 +314,8 @@
   <header class="container">
     <h1>Hub Manager</h1>
     <div class="subtitle" data-pt="Software com licença comercial/revenda" data-en="Commercial/Resale License Software">Software com licença comercial/revenda</div>
-    <p class="tagline" data-pt="Sistema de organização de tarefas vendido como projeto único. 
-      Apenas 10 unidades disponíveis para aquisição." data-en="Task organization system sold as a one-off project.
-Only 10 units available for purchase.">
+    <p class="tagline" data-pt="Sistema de organização de tarefas!" data-en="Task organization system sold as a one-off project.">
       Sistema de organização de tarefas vendido como projeto único. 
-      Apenas 10 unidades disponíveis para aquisição.
     </p>
   </header>
 
@@ -362,22 +361,18 @@ Only 10 units available for purchase.">
   </section>
 
   <!-- LICENÇA ÚNICA -->
-  <section class="container">
+    <section class="container">
     <h2 data-pt="Modelo de aquisição" data-en="Acquisition Model">Modelo de aquisição</h2>
 
     <div class="card">
       <strong data-pt="Licença Comercial/Revenda" data-en="Commercial/Resale License">Licença Comercial/Revenda</strong>
       <ul>
-        <li data-pt="10 unidades do sistema" data-en="10 units of the system">10 unidades do sistema</li>
-        <li data-pt="Nome unico incluso " data-en="Unique name included">Nome unico incluso </li>
-        <li data-pt="Sai de circulação comercial após 10 vendas" data-en="Software is removed from commercial circulation after 10 sales">O software sai de circulação comercial após 10 vendas</li>
-        <li data-pt="Exclusividade total do comprador" data-en="Total buyer exclusivity, each unit with a unique name">Exclusividade total do comprador, cada unidade com nome unico</li>
         <li data-pt="Entrega do sistema completo" data-en="Complete system delivery">Entrega do sistema completo</li>
+        <li data-pt="Código Fonte incluso" data-en="Source Code Included">Código Fonte incluso</li>
         <li data-pt="Sem mensalidades ou taxas ocultas" data-en="No monthly fees or hidden costs">Sem mensalidades ou taxas ocultas</li>
         <li data-pt="Possibilidade de personalização futura" data-en="Possibility of future customization">Possibilidade de personalização futura</li>
-        <li data-pt="Ambiente de Operação: Desktop" data-en="Operation Environment: Desktop">Ambiente de Operação: Desktop</li>
-      
-        <li>
+        <li data-pt="Nome único incluso" data-en="Unique name included">Nome único incluso</li>
+        <li style="display:none;">
             <span data-pt="Valor da licença: " data-en="License Value: ">Valor da licença: </span>
             <span style="font-weight:800; color:var(--accent);" id="price-value">Sob Consulta</span>
         </li>
@@ -406,10 +401,7 @@ Only 10 units available for purchase.">
     <p style="margin-bottom: 2rem;" data-pt="Desenvolvo sistemas com foco em utilidade real, clareza técnica e licenciamento direto." data-en="I develop systems focused on real utility, technical clarity, and direct licensing.">
       Desenvolvo sistemas com foco em utilidade real, clareza técnica
       e licenciamento direto.
-    </p>
 
-    <p style="margin-bottom: 2rem;" data-pt="Este projeto foi desenvolvido para ser entregue como um produto para 10 pessoas, garantindo a exclusividade da solução. Já esta com dois idiomas eng/ptbr, podendo assim aumentar seu alcance." data-en="This project was developed to be delivered as a product for 10 people, guaranteeing the exclusivity of the solution. It is already available in a bilingual version (English/Portuguese), thus increasing its reach.">
-      Este projeto foi desenvolvido para ser entregue como um produto para 10 pessoas, garantindo a exclusividade da solução. Já esta com dois idiomas eng/ptbr, podendo assim aumentar seu alcance.
     </p>
   </section>
 
