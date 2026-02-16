@@ -61,7 +61,9 @@
             border-bottom: 1px solid rgba(255,255,255,0.08);
             color: #e5e7eb;
         }
-        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; }
+        .hero-grid { display: flex; gap: 3rem; align-items: center; }
+        .hero-main { flex: 1.2; }
+        .hero-photo { flex: 0.8; max-width: 260px; }
         .hero .badge {
             display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
             color: #cbd5e1; border: 1px solid rgba(255,255,255,0.12); padding: 0.35rem 0.6rem; border-radius: 999px; margin-bottom: 1.2rem;
@@ -157,12 +159,14 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 700px) {
-            header { padding-top: 5rem; padding-bottom: 3rem; }
-            .header-flex { flex-direction: column; text-align: center; gap: 1.5rem; }
+            header.hero { padding-top: 6rem; padding-bottom: 3.5rem; }
+            .hero-grid { flex-direction: column; text-align: center; }
+            .hero-photo { order: -1; max-width: 190px; margin: 0 auto 1.5rem; }
+            .hero .actions { justify-content: center; flex-wrap: wrap; }
+            .hero .stack { text-align: center; }
             .licensing-grid { grid-template-columns: 1fr; gap: 2rem; }
             .manifesto { padding: 4rem 0; }
             .manifesto p { font-size: 1.5rem; }
-            .brand h1 { font-size: 2rem; }
             .lang-switcher { top: 1rem; right: 1rem; }
             .container { padding: 0 1.5rem; }
             .catalog { padding: 4rem 0; }
@@ -179,7 +183,7 @@
 
     <header class="hero reveal">
         <div class="container hero-grid">
-            <div>
+            <div class="hero-main">
                 <span class="badge" data-pt="Softwares Licenciados com Exclusividade Limitada" data-en="Licensed Software with Limited Exclusivity">Softwares Licenciados com Exclusividade Limitada</span>
                 <h2 data-pt="Lance Seu Próprio Software White-Label" data-en="Launch Your Own White-Label Software">Lance Seu Próprio Software White-Label</h2>
                 <p class="lead" data-pt="Infraestrutura profissional para empreendedores que querem lançar seu próprio produto digital sem começar do zero." data-en="Professional infrastructure for entrepreneurs who want to launch their own digital product without starting from scratch."></p>
