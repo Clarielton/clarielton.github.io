@@ -154,6 +154,54 @@
 
         footer { padding-bottom: 4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); }
 
+        /* 4.5 HIGHLIGHT SAAS (GRANA VERDE) */
+        .highlight-saas {
+            padding: 5rem;
+            margin: 6rem auto;
+            border: 1px solid rgba(59,130,246,0.3);
+            background: linear-gradient(180deg, rgba(59,130,246,0.08) 0%, rgba(2,6,23,0) 100%);
+            border-radius: 16px;
+            box-shadow: 0 0 40px rgba(59,130,246,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .highlight-saas::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.5;
+        }
+        .highlight-saas h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            font-weight: 800;
+        }
+        .highlight-saas .desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 65ch;
+            line-height: 1.7;
+        }
+        .highlight-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .highlight-features li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 700px) {
+            .highlight-saas { padding: 3rem 1.5rem; margin: 4rem 0; border-radius: 12px; }
+            .highlight-saas h2 { font-size: 1.8rem; }
+            .highlight-features { grid-template-columns: 1fr; }
+        }
+
         /* ANIMATION */
         .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -267,8 +315,27 @@
 
         <!-- CATÁLOGO -->
         <section id="catalog" class="container catalog reveal">
-            <span class="label" data-pt="Softwares:" data-en="Available Software">Softwares Disponíveis</span>
+            <span class="label" data-pt="Softwares Disponíveis" data-en="Available Software">Softwares Disponíveis</span>
             <div id="catalog-list" class="catalog-grid"></div>
+        </section>
+
+        <!-- DESTAQUE SAAS -->
+        <section class="container highlight-saas reveal">
+            <span class="label" style="color:var(--accent);" data-pt="SaaS em Destaque" data-en="Featured SaaS">SaaS em Destaque</span>
+            <h2 data-pt="Grana Verde" data-en="Grana Verde">Grana Verde</h2>
+            <p class="desc" data-pt="Gestão financeira pessoal simples, visual e estratégica. Projetado com foco em UX, arquitetura escalável e monetização por assinatura." data-en="Simple, visual, and strategic personal finance management. Designed with UX focus, scalable architecture, and subscription monetization."></p>
+            
+            <ul class="licensing-list highlight-features">
+                <li data-pt="Dashboard com visão clara do fluxo financeiro" data-en="Dashboard with clear financial flow view">Dashboard com visão clara do fluxo financeiro</li>
+                <li data-pt="Controle completo de receitas e despesas" data-en="Complete income and expense control">Controle completo de receitas e despesas</li>
+                <li data-pt="Sistema de metas e objetivos" data-en="Goals and objectives system">Sistema de metas e objetivos</li>
+                <li data-pt="Projeção de contas futuras" data-en="Future accounts projection">Projeção de contas futuras</li>
+                <li data-pt="Relatórios em PDF no Plano PRO" data-en="PDF Reports in PRO Plan">Relatórios em PDF no Plano PRO</li>
+                <li data-pt="Estrutura de planos FREE e PRO" data-en="FREE and PRO plan structure">Estrutura de planos FREE e PRO</li>
+                <li data-pt="Painel administrativo para gestão de usuários" data-en="Admin panel for user management">Painel administrativo para gestão de usuários</li>
+            </ul>
+
+            <a href="https://grana-verde-app-web.web.app/" target="_blank" class="btn-primary" data-pt="Acessar Plataforma" data-en="Access Platform">Acessar Plataforma</a>
         </section>
 
         <!-- CONTATO -->
