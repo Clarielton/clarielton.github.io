@@ -3,408 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio profissional de Clarielton Pereira, Desenvolvedor de Software. Projetos inovadores e soluções personalizadas.">
-    <title>Clarielton Pereira | Desenvolvedor, Gestor e Arquiteto de Software</title>
+    <meta name="description" content="Portfólio de Clarielton Pereira - Desenvolvedor Full Stack">
+    <title>Clarielton Pereira | Portfólio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #020617;
-            --surface: #02081b;
-            --text-main: #e5e7eb;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
-            --accent: #3b82f6;
-            --border: rgba(148,163,184,0.35);
-            --max-width: 800px;
+            --bg: #ffffff;
+            --surface: #f8fafc;
+            --text-main: #1e293b;
+            --text-secondary: #64748b;
+            --accent: #2563eb;
+            --border: #e2e8f0;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
         }
-
         .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 2rem;
+            max-width: 500px; /* Narrower for true portrait/mobile feel */
+            width: 100%;
+            text-align: center;
         }
-
-        /* LANG SWITCHER */
+        
+        /* Lang Switcher */
         .lang-switcher {
-            position: fixed;
-            top: 2rem; right: 2rem;
-            z-index: 1000;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            display: flex; background: var(--surface);
-            padding: 0.3rem; border: 1px solid var(--border);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .lang-btn {
-            background: none; border: none; color: var(--text-muted);
-            padding: 0.3rem 0.6rem; cursor: pointer;
-        }
-
-        .lang-btn.active { color: var(--text-main); background: #04213f; font-weight: bold; }
-
-        /* 1. HERO WHITE-LABEL */
-        header.hero {
-            padding: 8rem 0 6rem 0;
-            background: radial-gradient(1000px 400px at 20% 0%, rgba(59,130,246,0.2), transparent 60%), #0f172a;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            color: #e5e7eb;
-        }
-        .hero-grid { display: flex; gap: 3rem; align-items: center; }
-        .hero-main { flex: 1.2; }
-        .hero-photo { flex: 0.8; max-width: 260px; }
-        .hero .badge {
-            display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
-            color: #cbd5e1; border: 1px solid rgba(255,255,255,0.12); padding: 0.35rem 0.6rem; border-radius: 999px; margin-bottom: 1.2rem;
-            background: rgba(255,255,255,0.04);
-        }
-        .hero h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.04em; color: #ffffff; }
-        .hero .subtitle { font-size: 1rem; color: #cbd5e1; margin-top: 1rem; }
-        .hero .lead { font-size: 0.95rem; color: #94a3b8; margin-top: 1rem; max-width: 48ch; }
-        .hero .actions { margin-top: 2rem; display: flex; gap: 1rem; }
-        .btn-primary {
-            background: #3b82f6; color: #0b1220; font-weight: 800; letter-spacing: 0.03em;
-            padding: 0.9rem 1.6rem; border-radius: 10px; text-decoration: none; display: inline-block;
-        }
-        .btn-outline {
-            border: 1px solid #3b82f6; color: #3b82f6; font-weight: 800; letter-spacing: 0.03em;
-            padding: 0.9rem 1.6rem; border-radius: 10px; text-decoration: none; display: inline-block; background: transparent;
-        }
-        .hero .stack {
-            margin-top: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #93c5fd;
-        }
-        .hero-photo {
-            position: relative; border-radius: 16px; overflow: hidden;
-            box-shadow: 0 30px 60px rgba(2,6,23,0.6), 0 8px 24px rgba(59,130,246,0.15);
-            background: linear-gradient(180deg, rgba(15,23,42,0.8), rgba(15,23,42,0.95));
-        }
-        .hero-photo::before {
-            content: ""; position: absolute; inset: -10%; background: radial-gradient(500px 200px at 80% 20%, rgba(59,130,246,0.25), transparent 60%);
-            filter: blur(40px); z-index: 0;
-        }
-        .hero-photo img { position: relative; z-index: 1; width: 100%; height: auto; display: block; }
-
-        /* 2. MANIFESTO (SECO) */
-        .manifesto { padding: 6rem 0; border-bottom: 1px solid var(--border); }
-        .manifesto p { font-size: 2rem; font-weight: 700; line-height: 1.3; color: var(--text-main); }
-        .manifesto span { color: var(--text-muted); display: block; }
-
-        /* 3. LICENCIAMENTO */
-        .licensing { padding: 6rem 0; border-bottom: 1px solid var(--border); }
-        .label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 2rem; display: block; }
-        
-        .licensing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-        .licensing-info p { font-size: 1.2rem; margin-bottom: 2rem; }
-        
-        .licensing-list { list-style: none; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--text-secondary); }
-        .licensing-list li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
-        .licensing-list li::before { content: '•'; color: var(--accent); }
-
-        /* 4. SOFTWARES */
-        .catalog { padding: 8rem 0; border-bottom: 1px solid var(--border); }
-        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-        
-        .software-card {
-            border: 1px solid var(--border); padding: 2.5rem;
-            transition: 0.3s; background: var(--surface);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-radius: 8px;
-        }
-        .software-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 12px rgba(0,0,0,0.1); }
-        .software-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main); }
-        .software-card .desc { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 2rem; min-height: 3em; }
-        
-        .card-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 1.5rem; }
-        .card-meta strong { color: var(--text-secondary); font-weight: 600; }
-        
-        .btn-details {
-            display: inline-block; margin-top: 1.5rem;
-            font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
-            color: var(--accent); text-decoration: none;
-            border-bottom: 1px solid var(--accent); padding-bottom: 2px;
-            font-weight: 600;
-        }
-        .btn-details:hover { opacity: 0.8; }
-
-        /* 5. CONTATO */
-        .contact { padding: 4rem 0; text-align: center; }
-        .contact p { font-size: 1.2rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 0; }
-        
-        .btn-cta {
-            display: inline-block; margin-top: 2rem;
-            background: var(--text-main); color: #000000;
-            padding: 1rem 2.5rem; font-weight: 700;
-            text-decoration: none; border-radius: 6px;
-            transition: transform 0.2s;
+            position: absolute;
+            top: 1rem; right: 1rem;
+            display: flex; gap: 0.5rem;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.8rem;
         }
-        .btn-cta:hover { transform: translateY(-3px); opacity: 0.9; }
+        .lang-btn {
+            background: none; border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 0.2rem 0.5rem;
+            border-radius: 4px; cursor: pointer;
+        }
+        .lang-btn.active { background: var(--text-main); color: #fff; border-color: var(--text-main); }
 
-        footer { padding-bottom: 4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); }
+        /* Profile Header */
+        .profile-header { margin-bottom: 3rem; margin-top: 3rem; }
+        .avatar {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+        h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-main); }
+        .role { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: -0.02em; font-weight: 600; }
+        .bio { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2rem; max-width: 35ch; margin-left: auto; margin-right: auto; }
 
-        /* 4.5 HIGHLIGHT SAAS (GRANA VERDE) */
-        .highlight-saas {
-            padding: 5rem;
-            margin: 6rem auto;
-            border: 1px solid rgba(59,130,246,0.3);
-            background: linear-gradient(180deg, rgba(59,130,246,0.08) 0%, rgba(2,6,23,0) 100%);
+        /* Tech Stack */
+        .tech-stack {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem;
+            margin-bottom: 3rem;
+        }
+        .tech-tag {
+            background: #fff; 
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.9rem; border-radius: 20px;
+            font-size: 0.75rem; color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+            transition: 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tech-tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+
+        /* Portfolio List */
+        .portfolio-list { display: flex; flex-direction: column; gap: 1rem; text-align: left; width: 100%; }
+        .portfolio-card {
+            background: #fff;
+            border: 1px solid var(--border);
             border-radius: 16px;
-            box-shadow: 0 0 40px rgba(59,130,246,0.08);
+            padding: 1.5rem;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
-        .highlight-saas::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity: 0.5;
+        .portfolio-card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
+        .portfolio-card h3 { font-size: 1.1rem; margin-bottom: 0.4rem; font-weight: 700; color: var(--text-main); display: flex; align-items: center; justify-content: space-between; }
+        .portfolio-card p { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5; }
+        .portfolio-card .meta { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        /* Grana Verde Highlight */
+        .card-highlight {
+            background: #f0fdf4; /* Very light green tint */
+            border: 1px solid #bbf7d0;
         }
-        .highlight-saas h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
-            font-weight: 800;
-        }
-        .highlight-saas .desc {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            max-width: 65ch;
-            line-height: 1.7;
-        }
-        .highlight-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem 2rem;
-            margin-bottom: 2.5rem;
-        }
-        .highlight-features li {
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+        .card-highlight h3 { color: #15803d; } /* Green text for title */
+        .card-highlight .meta { color: #15803d; }
+        .card-highlight:hover { border-color: #16a34a; }
+        .card-highlight::after {
+            content: "★"; position: absolute; top: 1rem; right: 1rem; color: #15803d; font-size: 0.8rem;
         }
 
-        @media (max-width: 700px) {
-            .highlight-saas { padding: 3rem 1.5rem; margin: 4rem 0; border-radius: 12px; }
-            .highlight-saas h2 { font-size: 1.8rem; }
-            .highlight-features { grid-template-columns: 1fr; }
-        }
+        footer { margin-top: 4rem; font-size: 0.75rem; color: var(--text-secondary); opacity: 0.8; font-family: 'JetBrains Mono', monospace; }
+        
+        /* Animation */
+        .reveal { animation: fadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; transform: translateY(15px); }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
 
-        /* ANIMATION */
-        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 700px) {
-            header.hero { padding-top: 6rem; padding-bottom: 3.5rem; }
-            .hero-grid { flex-direction: column; text-align: center; }
-            .hero-photo { order: -1; max-width: 190px; margin: 0 auto 1.5rem; }
-            .hero .actions { justify-content: center; flex-wrap: wrap; }
-            .hero .stack { text-align: center; }
-            .licensing-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .manifesto { padding: 4rem 0; }
-            .manifesto p { font-size: 1.5rem; }
-            .lang-switcher { top: 1rem; right: 1rem; }
-            .container { padding: 0 1.5rem; }
-            .catalog { padding: 4rem 0; }
-            .contact { padding: 3rem 0; }
+        @media (max-width: 400px) {
+            .container { padding: 0 0.5rem; }
+            .portfolio-card { padding: 1.2rem; }
         }
     </style>
 </head>
 <body>
-
     <div class="lang-switcher">
         <button class="lang-btn active" id="btn-pt" onclick="switchLang('pt')">PT</button>
         <button class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
     </div>
 
-    <header class="hero reveal">
-        <div class="container hero-grid">
-            <div class="hero-main">
-                <span class="badge" data-pt="Softwares Licenciados com Exclusividade Limitada" data-en="Licensed Software with Limited Exclusivity">Softwares Licenciados com Exclusividade Limitada</span>
-                <h2 data-pt="Lance Seu Próprio Software White-Label" data-en="Launch Your Own White-Label Software">Lance Seu Próprio Software White-Label</h2>
-                <p class="lead" data-pt="Infraestrutura profissional para empreendedores que querem lançar seu próprio produto digital sem começar do zero." data-en="Professional infrastructure for entrepreneurs who want to launch their own digital product without starting from scratch."></p>
-                <div class="actions">
-                    <a href="#catalog" class="btn-primary" data-pt="Ver Sistemas Disponíveis" data-en="View Available Systems">Ver Sistemas Disponíveis</a>
-                    <a href="https://wa.me/5547996621559" class="btn-outline" data-pt="Entre em contato" data-en="Contact">Entre em contato</a>
-                </div>
-                <div class="stack" data-pt="React • Node.js • Python • Web • Desktop" data-en="React • Node.js • Python • Scalable SaaS Architecture">React • Node.js • Python • Arquitetura SaaS Escalável</div>
-            </div>
-            <div class="hero-photo">
-                <img src="foto.jpg" alt="Clarielton Pereira" onerror="this.style.opacity='0';">
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <!-- MANIFESTO -->
-        <section class="container manifesto reveal">
-            <p id="manifesto-text"></p>
-        </section>
-
-        <!-- CURRICULO -->
-        <section class="container curriculum reveal" style="padding: 6rem 0; border-bottom: 1px solid var(--border);">
-            <span class="label" data-pt="Sobre o Desenvolvedor" data-en="About the Developer">Sobre o Desenvolvedor</span>
-            <div class="licensing-grid">
-                <div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main);" data-pt="Perfil Profissional" data-en="Professional Profile">Perfil Profissional</h3>
-                    <p style="margin-bottom: 1rem; color: var(--text-secondary);" data-pt="Atuo no desenvolvimento, gestão e arquitetura de softwares exclusivos. Transformo necessidades complexas em produtos digitais robustos, garantindo excelência técnica e estratégica do início ao fim." data-en="I work in software development, management, and architecture. I transform complex needs into robust digital products, ensuring technical and strategic excellence from start to finish."></p>
-                </div>
-                <div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main);" data-pt="Competências" data-en="Skills">Competências</h3>
-                    <ul class="licensing-list">
-                        <li>Arquitetura de Software</li>
-                        <li>Desenvolvimento Full Stack</li>
-                        <li>Modelagem de Negócios SaaS</li>
-                        <li>Integração de Sistemas</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- APRENDIZADOS -->
-        <section class="container reveal" style="padding: 4rem 0; border-bottom: 1px solid var(--border);">
-            <span class="label" data-pt="Sobre este Portfólio" data-en="About this Portfolio">Sobre este Portfólio</span>
-            <div style="max-width: 800px;">
-                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-main);" data-pt="O que aprendi construindo este projeto" data-en="What I learned building this project">O que aprendi construindo este projeto</h3>
-                <ul class="licensing-list">
-                    <li data-pt="HTML5 & SEO: Estruturação semântica e meta tags para indexação no Google." data-en="HTML5 & SEO: Semantic structure and meta tags for Google indexing.">
-                        HTML5 & SEO: Estruturação semântica e meta tags para indexação no Google.
-                    </li>
-                    <li data-pt="CSS3 Moderno: Flexbox, CSS Grid, Variáveis (Themes) e Design Responsivo." data-en="Modern CSS3: Flexbox, CSS Grid, Variables (Themes), and Responsive Design.">
-                        CSS3 Moderno: Flexbox, CSS Grid, Variáveis (Themes) e Design Responsivo.
-                    </li>
-                    <li data-pt="Firebase Hosting: Configuração de rewrites, deploy via CLI e gerenciamento de cache." data-en="Firebase Hosting: Rewrites configuration, CLI deploy, and cache management.">
-                        Firebase Hosting: Configuração de rewrites, deploy via CLI e gerenciamento de cache.
-                    </li>
-                    <li data-pt="JavaScript Puro: Lógica de SPA leve, troca de idiomas e persistência de dados." data-en="Vanilla JavaScript: Lightweight SPA logic, language switching, and data persistence.">
-                        JavaScript Puro: Lógica de SPA leve, troca de idiomas e persistência de dados.
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- LICENCIAMENTO -->
-        <section class="container licensing reveal">
-            <span class="label" data-pt="Modelo de Negócio" data-en="Business Model">Modelo de Negócio</span>
-            <div class="licensing-grid">
-                <div class="licensing-info">
-                    <p data-pt="Sistemas prontos para uso e revenda, com licença exclusiva e entrega direta ao comprador." data-en="Ready-to-use software for use and resale, with exclusive license delivered directly to the buyer."></p>
-                </div>
-                <div>
-                    <span class="label" data-pt="Licenças disponíveis" data-en="Available licenses">Licenças disponíveis</span>
-                    <ul class="licensing-list">
-                        <li data-pt="Uso pessoal" data-en="Personal use">Uso pessoal</li>
-                        <li data-pt="Uso comercial / revenda" data-en="Commercial / Resale">Uso comercial / revenda</li>
-                        <li data-pt="Licença exclusiva (projeto único)" data-en="Exclusive license (Unique project)">Licença exclusiva (projeto único)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- CATÁLOGO -->
-        <section id="catalog" class="container catalog reveal">
-            <span class="label" data-pt="Softwares Disponíveis" data-en="Available Software">Softwares Disponíveis</span>
-            <div id="catalog-list" class="catalog-grid"></div>
-        </section>
-
-        <!-- DESTAQUE SAAS -->
-        <section class="container highlight-saas reveal">
-            <span class="label" style="color:var(--accent);" data-pt="SaaS em Destaque" data-en="Featured SaaS">SaaS em Destaque</span>
-            <h2 data-pt="Grana Verde" data-en="Grana Verde">Grana Verde</h2>
-            <p class="desc" data-pt="Gestão financeira pessoal simples, visual e estratégica. Projetado com foco em UX, arquitetura escalável e monetização por assinatura." data-en="Simple, visual, and strategic personal finance management. Designed with UX focus, scalable architecture, and subscription monetization."></p>
+    <div class="container">
+        <header class="profile-header reveal">
+            <img src="foto.jpg" alt="Clarielton Pereira" class="avatar" onerror="this.style.opacity='0.5'">
+            <h1 data-pt="Clarielton Pereira" data-en="Clarielton Pereira">Clarielton Pereira</h1>
+            <p class="role" data-pt="Desenvolvedor & Arquiteto de Software" data-en="Software Developer & Architect">Desenvolvedor & Arquiteto de Software</p>
+            <p class="bio" data-pt="Transformo ideias em produtos digitais escaláveis, funcionais e lucrativos." data-en="I turn ideas into scalable, functional, and profitable digital products.">Transformo ideias em produtos digitais escaláveis, funcionais e lucrativos.</p>
             
-            <ul class="licensing-list highlight-features">
-                <li data-pt="Dashboard com visão clara do fluxo financeiro" data-en="Dashboard with clear financial flow view">Dashboard com visão clara do fluxo financeiro</li>
-                <li data-pt="Controle completo de receitas e despesas" data-en="Complete income and expense control">Controle completo de receitas e despesas</li>
-                <li data-pt="Sistema de metas e objetivos" data-en="Goals and objectives system">Sistema de metas e objetivos</li>
-                <li data-pt="Projeção de contas futuras" data-en="Future accounts projection">Projeção de contas futuras</li>
-                <li data-pt="Relatórios em PDF no Plano PRO" data-en="PDF Reports in PRO Plan">Relatórios em PDF no Plano PRO</li>
-                <li data-pt="Estrutura de planos FREE e PRO" data-en="FREE and PRO plan structure">Estrutura de planos FREE e PRO</li>
-                <li data-pt="Painel administrativo para gestão de usuários" data-en="Admin panel for user management">Painel administrativo para gestão de usuários</li>
-            </ul>
+            <div class="tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">SaaS</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">UI/UX</span>
+            </div>
+        </header>
 
-            <a href="https://grana-verde-app-web.web.app/" target="_blank" class="btn-primary" data-pt="Acessar Plataforma" data-en="Access Platform">Acessar Plataforma</a>
-        </section>
+        <main class="portfolio-list reveal delay-1">
+            <!-- GRANA VERDE -->
+            <a href="https://grana-verde-app-web.web.app/" target="_blank" class="portfolio-card card-highlight">
+                <h3 data-pt="Grana Verde" data-en="Grana Verde">Grana Verde</h3>
+                <p data-pt="SaaS de gestão financeira pessoal com foco em UX, metas e projeção de futuro." data-en="Personal finance SaaS focused on UX, goals, and future projection.">SaaS de gestão financeira pessoal com foco em UX, metas e projeção de futuro.</p>
+                <div class="meta" data-pt="SAAS • WEB APP" data-en="SAAS • WEB APP">SAAS • WEB APP</div>
+            </a>
 
-        <!-- CONTATO -->
-        <section class="container contact reveal">
-            <p data-pt="Tem um projeto diferente em mente? Vamos conversar." data-en="Have a different project in mind? Let's talk."></p>
-            <a href="https://wa.me/5547996621559" class="btn-cta" data-pt="Falar no WhatsApp" data-en="Chat on WhatsApp">Falar no WhatsApp</a>
-        </section>
-    </main>
+            <!-- T3 -->
+            <a href="apresentacao-t3.html" class="portfolio-card">
+                <h3 data-pt="T3 Software" data-en="T3 Software">T3 Software</h3>
+                <p data-pt="Gestão industrial focada em rentabilidade e controle total do chão de fábrica." data-en="Industrial management focused on profitability and total factory floor control.">Gestão industrial focada em rentabilidade e controle total do chão de fábrica.</p>
+                <div class="meta" data-pt="DESKTOP • INDUSTRIAL" data-en="DESKTOP • INDUSTRIAL">DESKTOP • INDUSTRIAL</div>
+            </a>
 
-    <footer class="container">
-        <p>© CLARIELTON PEREIRA — 2025</p>
-    </footer>
+            <!-- ORÇASMART -->
+            <a href="apresentacao-orcasmart.html" class="portfolio-card">
+                <h3 data-pt="OrçaSmart" data-en="OrçaSmart">OrçaSmart</h3>
+                <p data-pt="Gerador de orçamentos profissionais simples para autônomos e pequenos negócios." data-en="Simple professional quote generator for freelancers and small businesses.">Gerador de orçamentos profissionais simples para autônomos e pequenos negócios.</p>
+                <div class="meta" data-pt="WEB • COMERCIAL" data-en="WEB • COMMERCIAL">WEB • COMERCIAL</div>
+            </a>
+        </main>
+
+        <footer class="reveal delay-2">
+            <p>© 2025 Clarielton Pereira</p>
+        </footer>
+    </div>
 
     <script>
-        // CATÁLOGO DE PRODUTOS
-        const SOFTWARES = [
-            
-            {
-                title_pt: "T3 Software",
-                title_en: "T3 Software",
-                desc_pt: "Elimine o 'achismo'. Saiba exatamente onde o lucro nasce no chão de fábrica.",
-                desc_en: "Eliminate guesswork. Know exactly where profit is born on the factory floor.",
-                lic_pt: "Industrial / Produção",
-                lic_en: "Industrial / Production",
-                link: "apresentacao-t3.html"
-            },
-            {
-                title_pt: "OrçaSmart",
-                title_en: "OrçaSmart",
-                desc_pt: "OrçaSmart é um software desenvolvido para simplificar a criação de orçamentos profissionais para empreendedores, autônomos e pequenos negócios.",
-                desc_en: "OrçaSmart is a software developed to simplify the creation of professional budgets for entrepreneurs, freelancers, and small businesses.",
-                lic_pt: "Comercial",
-                lic_en: "Commercial",
-                link: "apresentacao-orcasmart.html"
-            }
-        ];
-
-        
-
         let lang = localStorage.getItem('lang') || 'pt';
 
-        function render() {
-            // Manifesto Update
-            const manifesto = {
-                pt: "Desenvolvo softwares.<span></span>Faço gestão.<span></span>Arquiteto soluções.<span></span>Entrego valor real.",
-                en: "I develop software.<span></span>I manage processes.<span></span>I architect solutions.<span></span>I deliver real value."
-            };
-            document.getElementById('manifesto-text').innerHTML = manifesto[lang];
-
-            // Attributes Update
+        function updateTexts() {
             document.querySelectorAll('[data-pt]').forEach(el => {
-                el.textContent = el.getAttribute(`data-${lang}`);
+                const text = el.getAttribute(`data-${lang}`);
+                if(text) el.textContent = text;
             });
-
-            // Catalog Update
-            const list = document.getElementById('catalog-list');
-            list.innerHTML = SOFTWARES.map(s => `
-                <div class="software-card">
-                    <h3>${lang === 'pt' ? s.title_pt : s.title_en}</h3>
-                    <p class="desc">${lang === 'pt' ? s.desc_pt : s.desc_en}</p>
-                    <div class="card-meta">
-                        <span class="label" style="margin-bottom:0.5rem">LICENÇAS</span>
-                        <strong>${lang === 'pt' ? s.lic_pt : s.lic_en}</strong>
-                    </div>
-                    <a href="${s.link}" class="btn-details">${lang === 'pt' ? '[ Ver detalhes ]' : '[ View details ]'}</a>
-                </div>
-            `).join('');
-
-            // Lang Buttons Update
             document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
         }
@@ -412,18 +191,11 @@
         function switchLang(l) {
             lang = l;
             localStorage.setItem('lang', l);
-            render();
+            updateTexts();
         }
 
-        // Scroll reveal logic
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
-        }, { threshold: 0.1 });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            render();
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        });
+        // Init
+        document.addEventListener('DOMContentLoaded', updateTexts);
     </script>
 </body>
 </html>
