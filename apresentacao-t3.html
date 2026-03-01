@@ -10,12 +10,12 @@
 
   <style>
     :root {
-      --bg: #020617;
-      --surface: #02081b;
-      --border: rgba(148,163,184,0.25);
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --accent: #3b82f6;
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #2563eb;
       --max: 860px;
     }
 
@@ -46,44 +46,48 @@
     .control-group {
         font-family: 'JetBrains Mono', monospace;
         font-size: 0.7rem;
-        display: flex; background: var(--surface);
+        display: flex; background: #ffffff;
         padding: 0.3rem; border: 1px solid var(--border);
         box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        border-radius: 6px;
     }
 
     .control-btn {
         background: none; border: none; color: var(--muted);
         padding: 0.3rem 0.6rem; cursor: pointer;
+        border-radius: 4px;
     }
 
-    .control-btn.active { color: var(--text); background: #e9ecef; font-weight: bold; }
+    .control-btn.active { color: #ffffff; background: var(--text); font-weight: bold; }
 
     header {
       padding: 8rem 0 6rem;
-      background: radial-gradient(1000px 400px at 20% 0%, rgba(59,130,246,0.2), transparent 60%), #0f172a;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      color: #e5e7eb;
+      background: radial-gradient(1000px 400px at 50% 0%, rgba(37, 99, 235, 0.1), transparent 60%), #ffffff;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
     }
 
     h1 {
       font-size: 3rem;
       font-weight: 800;
       letter-spacing: -0.04em;
+      color: var(--text);
     }
 
     .subtitle {
       font-family: JetBrains Mono, monospace;
       font-size: 0.8rem;
-      color: #cbd5e1;
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-top: 0.8rem;
+      font-weight: 600;
     }
 
     .tagline {
       margin-top: 1.5rem;
       font-size: 1.2rem;
-      color: #94a3b8;
+      color: var(--muted);
       max-width: 620px;
     }
 
@@ -95,6 +99,7 @@
     h2 {
       font-size: 1.8rem;
       margin-bottom: 2rem;
+      color: var(--text);
     }
 
     p {
@@ -120,12 +125,12 @@
     }
 
     .card {
-      background: var(--surface);
+      background: #ffffff;
       border: 1px solid var(--border);
       padding: 3rem;
       max-width: 600px;
       margin: 0 auto;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       border-radius: 12px;
       position: relative;
       overflow: hidden;
@@ -134,7 +139,7 @@
     .card::before {
         content: "";
         position: absolute; top: 0; left: 0; width: 100%; height: 6px;
-        background: linear-gradient(90deg, var(--accent), #0a58ca);
+        background: linear-gradient(90deg, var(--accent), #60a5fa);
     }
 
     .card strong {
@@ -168,18 +173,20 @@
     .cta a {
       display: inline-block;
       background: var(--text);
-      color: var(--bg);
+      color: #ffffff;
       padding: 1rem 2.5rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       text-decoration: none;
       font-size: 0.75rem;
-      transition: opacity 0.2s;
+      transition: opacity 0.2s, transform 0.2s;
+      border-radius: 6px;
     }
     
     .cta a:hover {
       opacity: 0.9;
+      transform: translateY(-2px);
     }
 
     footer {
@@ -189,6 +196,13 @@
       color: var(--muted);
       text-align: center;
     }
+    
+    /* Animation */
+    .reveal { animation: fadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; transform: translateY(20px); }
+    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
 
     @media (max-width: 720px) {
       h1 { font-size: 2rem; }
@@ -216,15 +230,18 @@
 
     .gallery-item {
       border: 1px solid var(--border);
-      background: var(--surface);
+      background: #ffffff;
       padding: 0.5rem;
       transition: transform 0.3s ease;
       text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     .gallery-item:hover {
       transform: translateY(-5px);
       border-color: var(--accent);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     }
 
     .gallery-item img {
@@ -311,7 +328,7 @@
   </div>
 
   <!-- HEADER -->
-  <header class="container">
+  <header class="container reveal">
     <h1>T3 Software</h1>
     <div class="subtitle" data-pt="Licença Industrial" data-en="Industrial License">Licença Industrial</div>
     <p class="tagline" data-pt="Produzir no escuro. Elimine o 'achismo' das planilhas. Saiba exatamente onde o lucro nasce e onde ele morre em cada turno, máquina e operador." data-en="It's producing in the dark. Eliminate spreadsheet guesswork. Know exactly where profit is born and where it dies in every shift, machine, and operator.">
@@ -320,9 +337,9 @@
   </header>
 
   <!-- VÍDEO DEMONSTRAÇÃO -->
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="Demonstração em Vídeo" data-en="Video Demo">Demonstração em Vídeo</h2>
-    <div style="width: 100%; background: #000; border-radius: 4px; overflow: hidden;">
+    <div style="width: 100%; background: #000; border-radius: 4px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
         <video controls style="width: 100%; display: block; max-height: 80vh;">
             <source src="mp4/t3software/demo.mp4" type="video/mp4">
             <span data-pt="Seu navegador não suporta a reprodução de vídeo." data-en="Your browser does not support video playback.">Seu navegador não suporta a reprodução de vídeo.</span>
@@ -331,7 +348,7 @@
   </section>
 
   <!-- GALERIA DE IMAGENS -->
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="Chão de Fábrica" data-en="Factory Floor">Chão de Fábrica</h2>
     <p data-pt="Visualização das principais telas do T3 Software." data-en="Visualization of main T3 Software screens.">Visualização das principais telas do T3 Software.</p>
     
@@ -364,7 +381,7 @@
   </section>
 
   <!-- MANIFESTO -->
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="A realidade do agora" data-en="The reality of now">A realidade do agora</h2>
     <p data-pt="Enquanto o ERP fecha o mês, o T3 mostra a realidade do agora." data-en="While the ERP closes the month, T3 shows the reality of now.">
       Enquanto o ERP fecha o mês, o T3 mostra a realidade do agora.
@@ -379,7 +396,7 @@
   </section>
 
   <!-- LICENÇA ÚNICA -->
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="Modelo de aquisição" data-en="Acquisition Model">Modelo de aquisição</h2>
 
     <div class="card">
@@ -401,7 +418,7 @@
   </section>
 
   <!-- PARA QUEM -->
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="Para quem é o T3" data-en="Who T3 is for">Para quem é o T3</h2>
     <ul>
       <li data-pt="Indústrias que querem saber o custo real de produção" data-en="Industries that want to know the real cost of production">Indústrias que querem saber o custo real de produção</li>
@@ -411,7 +428,7 @@
   </section>
 
   <!-- SOBRE -->
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="Sobre o Desenvolvedor" data-en="About the Developer">Sobre o Desenvolvedor</h2>
     <p style="margin-bottom: 2rem;">
       <span data-pt="Sou" data-en="I am">Sou</span> <strong>Clarielton Pereira</strong>, <span data-pt="desenvolvedor, gestor e arquiteto de software." data-en="software developer, manager, and architect.">desenvolvedor, gestor e arquiteto de software.</span>
@@ -426,11 +443,11 @@
   </section>
 
   <!-- CTA -->
-  <section class="cta container">
+  <section class="cta container reveal">
     <a href="https://wa.me/5547996621559" data-pt="Entre em contato pelo WhatsApp" data-en="WhatsApp Contact">Entre em contato pelo WhatsApp</a>  
   </section>
 
-  <footer>
+  <footer class="reveal">
     © Clarielton Pereira — <span data-pt="Desenvolvimento, Gestão e Arquitetura" data-en="Development, Management, and Architecture">Desenvolvimento, Gestão e Arquitetura</span>
   </footer>
 
@@ -474,6 +491,21 @@
         if (e.key === 'Escape') {
           closeLightbox();
         }
+      });
+
+      // Animation Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
       });
     });
 

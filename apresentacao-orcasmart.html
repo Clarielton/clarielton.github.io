@@ -10,12 +10,12 @@
 
   <style>
     :root {
-      --bg: #020617;
-      --surface: #02081b;
-      --border: rgba(148,163,184,0.25);
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --accent: #3b82f6;
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #2563eb;
       --max: 860px;
     }
 
@@ -34,6 +34,19 @@
       padding: 0 2rem;
     }
 
+    .reveal {
+      animation: fadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .top-controls {
         position: fixed;
         top: 2rem; right: 2rem;
@@ -48,24 +61,33 @@
 
     .control-group {
         font-family: 'JetBrains Mono', monospace;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         display: flex; background: var(--surface);
         padding: 0.3rem; border: 1px solid var(--border);
         box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        border-radius: 6px;
     }
 
     .control-btn {
         background: none; border: none; color: var(--muted);
-        padding: 0.3rem 0.6rem; cursor: pointer;
+        padding: 0.4rem 0.8rem; cursor: pointer;
+        font-weight: 500;
+        transition: color 0.2s, background 0.2s;
+        border-radius: 4px;
     }
 
-    .control-btn.active { color: var(--text); background: #e9ecef; font-weight: bold; }
+    .control-btn:hover {
+        color: var(--accent);
+        background: rgba(37, 99, 235, 0.05);
+    }
+
+    .control-btn.active { color: var(--accent); background: rgba(37, 99, 235, 0.1); font-weight: bold; }
 
     header {
       padding: 8rem 0 6rem;
-      background: radial-gradient(1000px 400px at 20% 0%, rgba(59,130,246,0.2), transparent 60%), #0f172a;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      color: #e5e7eb;
+      background: radial-gradient(1000px 400px at 20% 0%, rgba(37, 99, 235, 0.1), transparent 60%), var(--bg);
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
     }
 
     h1 {
@@ -77,7 +99,7 @@
     .subtitle {
       font-family: JetBrains Mono, monospace;
       font-size: 0.8rem;
-      color: #cbd5e1;
+      color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-top: 0.8rem;
@@ -86,7 +108,7 @@
     .tagline {
       margin-top: 1.5rem;
       font-size: 1.2rem;
-      color: #94a3b8;
+      color: var(--muted);
       max-width: 620px;
     }
 
@@ -178,11 +200,13 @@
       letter-spacing: 0.1em;
       text-decoration: none;
       font-size: 0.75rem;
-      transition: opacity 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 4px;
     }
     
     .cta a:hover {
-      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     footer {
@@ -216,14 +240,17 @@
       border: 1px solid var(--border);
       background: var(--surface);
       padding: 0.5rem;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, border-color 0.3s;
       text-align: center;
       cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     .gallery-item:hover {
       transform: translateY(-5px);
       border-color: var(--accent);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
 
     .gallery-item img {
@@ -269,8 +296,8 @@
     .lightbox-content {
       max-width: 90%;
       max-height: 90%;
-      border-radius: 4px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
     }
 
     .lightbox-close {
@@ -302,7 +329,7 @@
     </div>
   </div>
 
-  <header class="container">
+  <header class="container reveal">
     <h1>OrçaSmart</h1>
     <div class="subtitle" data-pt="Plataforma Web" data-en="Web Platform">Plataforma Web </div>
     <p class="tagline" data-pt="OrçaSmart é uma plataforma web  desenvolvida para simplificar a criação de orçamentos profissionais para empreendedores, autônomos e pequenos negócios, que o usuario compra créditos para criar orçamentos com pix seguro e rapido" data-en="OrçaSmart is a web and platform developed to simplify the creation of professional budgets for entrepreneurs, freelancers, and small businesses, where users purchase credits to create budgets with secure and fast payment methods.">
@@ -310,35 +337,35 @@
     </p>
   </header>
 
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="Interface do Sistema" data-en="System Interface">Interface do Sistema</h2>
     <p data-pt="Visualização de telas representativas do OrcaSmart." data-en="Visualization of representative OrcaSmart screens.">Visualização de telas representativas do OrcaSmart.</p>
     
     <div class="gallery-grid">
       <div class="gallery-item" onclick="openLightbox('img/orcasmart/dashboard.png')">
-        <img src="img/orcasmart/dashboard.png" alt="Dashboard" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Dashboard'">
+        <img src="img/orcasmart/dashboard.png" alt="Dashboard" onerror="this.src='https://placehold.co/600x400/f8fafc/1e293b?text=Dashboard'">
         <div class="gallery-caption" data-pt="Dashboard" data-en="Dashboard">Dashboard</div>
       </div>
       <div class="gallery-item" onclick="openLightbox('img/orcasmart/login.png')">
-        <img src="img/orcasmart/login.png" alt="Login" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Login'">
+        <img src="img/orcasmart/login.png" alt="Login" onerror="this.src='https://placehold.co/600x400/f8fafc/1e293b?text=Login'">
         <div class="gallery-caption" data-pt="Login" data-en="Login">Login</div>
       </div>
       <div class="gallery-item" onclick="openLightbox('img/orcasmart/admin.png')">
-        <img src="img/orcasmart/admin.png" alt="Admin" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Admin'">
+        <img src="img/orcasmart/admin.png" alt="Admin" onerror="this.src='https://placehold.co/600x400/f8fafc/1e293b?text=Admin'">
         <div class="gallery-caption" data-pt="Admin" data-en="Admin">Admin</div>
       </div>
       <div class="gallery-item" onclick="openLightbox('img/orcasmart/novo orçamento.png')">
-        <img src="img/orcasmart/novo orçamento.png" alt="Novo Orçamento" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Novo+Orcamento'">
+        <img src="img/orcasmart/novo orçamento.png" alt="Novo Orçamento" onerror="this.src='https://placehold.co/600x400/f8fafc/1e293b?text=Novo+Orcamento'">
         <div class="gallery-caption" data-pt="Novo Orçamento" data-en="New Budget">Novo Orçamento</div>
       </div>
       <div class="gallery-item" onclick="openLightbox('img/orcasmart/registro.png')">
-        <img src="img/orcasmart/registro.png" alt="Registro" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Registro'">
+        <img src="img/orcasmart/registro.png" alt="Registro" onerror="this.src='https://placehold.co/600x400/f8fafc/1e293b?text=Registro'">
         <div class="gallery-caption" data-pt="Registro" data-en="Register">Registro</div>
       </div>
     </div>
   </section>
 
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="Modelo de aquisição" data-en="Acquisition Model">Modelo de aquisição</h2>
     <div class="card">
       <strong data-pt="Licença Comercial/Revenda" data-en="Commercial/Resale License">Licença Comercial/Revenda</strong>
@@ -356,7 +383,7 @@
     </div>
   </section>
 
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="Para quem faz sentido" data-en="Who it’s for">Para quem faz sentido</h2>
     <ul>
       <li data-pt="Empreendedores e autônomos que precisam enviar orçamentos profissionais" data-en="Entrepreneurs and freelancers who need to send professional estimates">Empreendedores e autônomos que precisam enviar orçamentos profissionais</li>
@@ -365,7 +392,7 @@
     </ul>
   </section>
 
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="Sobre o Desenvolvedor" data-en="About the Developer">Sobre o Desenvolvedor</h2>
     <p style="margin-bottom: 2rem;">
       <span data-pt="Sou" data-en="I am">Sou</span> <strong>Clarielton Pereira</strong>, <span data-pt="desenvolvedor, gestor e arquiteto de software." data-en="software developer, manager, and architect.">desenvolvedor, gestor e arquiteto de software.</span>
@@ -374,14 +401,13 @@
       Desenvolvo sistemas com foco em utilidade real, clareza técnica
       e licenciamento direto.
     </p>
-   
   </section>
 
-  <section class="cta container">
+  <section class="cta container reveal">
     <a href="https://wa.me/5547996621559" data-pt="Solicitar Demonstração" data-en="Request Demo">Solicitar Demonstração</a>
   </section>
 
-  <footer>
+  <footer class="reveal">
     © Clarielton Pereira — <span data-pt="Desenvolvimento, Gestão e Arquitetura" data-en="Development, Management, and Architecture">Desenvolvimento, Gestão e Arquitetura</span>
   </footer>
 
@@ -415,6 +441,21 @@
       });
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeLightbox();
+      });
+
+      // Animation Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
       });
     });
 

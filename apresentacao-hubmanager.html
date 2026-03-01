@@ -10,12 +10,12 @@
 
   <style>
     :root {
-      --bg: #020617;
-      --surface: #02081b;
-      --border: rgba(148,163,184,0.25);
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --accent: #3b82f6;
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #2563eb;
       --max: 860px;
     }
 
@@ -34,6 +34,19 @@
       padding: 0 2rem;
     }
 
+    .reveal {
+      animation: fadeIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* TOP CONTROLS */
     .top-controls {
         position: fixed;
@@ -45,24 +58,33 @@
 
     .control-group {
         font-family: 'JetBrains Mono', monospace;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         display: flex; background: var(--surface);
         padding: 0.3rem; border: 1px solid var(--border);
         box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        border-radius: 6px;
     }
 
     .control-btn {
         background: none; border: none; color: var(--muted);
-        padding: 0.3rem 0.6rem; cursor: pointer;
+        padding: 0.4rem 0.8rem; cursor: pointer;
+        font-weight: 500;
+        transition: color 0.2s, background 0.2s;
+        border-radius: 4px;
     }
 
-    .control-btn.active { color: var(--text); background: #e9ecef; font-weight: bold; }
+    .control-btn:hover {
+        color: var(--accent);
+        background: rgba(37, 99, 235, 0.05);
+    }
+
+    .control-btn.active { color: var(--accent); background: rgba(37, 99, 235, 0.1); font-weight: bold; }
 
     header {
       padding: 8rem 0 6rem;
-      background: radial-gradient(1000px 400px at 20% 0%, rgba(59,130,246,0.2), transparent 60%), #0f172a;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      color: #e5e7eb;
+      background: radial-gradient(1000px 400px at 20% 0%, rgba(37, 99, 235, 0.1), transparent 60%), var(--bg);
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
     }
 
     h1 {
@@ -74,7 +96,7 @@
     .subtitle {
       font-family: JetBrains Mono, monospace;
       font-size: 0.8rem;
-      color: #cbd5e1;
+      color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-top: 0.8rem;
@@ -83,7 +105,7 @@
     .tagline {
       margin-top: 1.5rem;
       font-size: 1.2rem;
-      color: #94a3b8;
+      color: var(--muted);
       max-width: 620px;
     }
 
@@ -175,11 +197,13 @@
       letter-spacing: 0.1em;
       text-decoration: none;
       font-size: 0.75rem;
-      transition: opacity 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 4px;
     }
     
     .cta a:hover {
-      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     footer {
@@ -218,13 +242,17 @@
       border: 1px solid var(--border);
       background: var(--surface);
       padding: 0.5rem;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, border-color 0.3s;
       text-align: center;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     .gallery-item:hover {
       transform: translateY(-5px);
       border-color: var(--accent);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
 
     .gallery-item img {
@@ -272,8 +300,8 @@
     .lightbox-content {
       max-width: 90%;
       max-height: 90%;
-      border-radius: 4px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
     }
 
     .lightbox-close {
@@ -289,10 +317,6 @@
 
     .lightbox-close:hover {
       color: var(--accent);
-    }
-    
-    .gallery-item {
-      cursor: pointer;
     }
   </style>
 </head>
@@ -311,7 +335,7 @@
   </div>
 
   <!-- HEADER -->
-  <header class="container">
+  <header class="container reveal">
     <h1>Hub Manager</h1>
     <div class="subtitle" data-pt="Software com licença comercial/revenda" data-en="Commercial/Resale License Software">Software com licença comercial/revenda</div>
     <p class="tagline" data-pt="Sistema de organização de tarefas!" data-en="Task organization system sold as a one-off project.">
@@ -320,33 +344,33 @@
   </header>
 
   <!-- GALERIA DE IMAGENS -->
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="Interface do Sistema" data-en="System Interface">Interface do Sistema</h2>
     <p data-pt="Visualização das principais telas do Hub Manager." data-en="Visualization of main Hub Manager screens.">Visualização das principais telas do Hub Manager.</p>
     
     <div class="gallery-grid">
       <!-- IMAGEM 1 -->
       <div class="gallery-item">
-        <img src="img/hubmanager/tela1.jpg" alt="Dashboard Principal" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Screenshot+1'">
+        <img src="img/hubmanager/tela1.jpg" alt="Dashboard Principal" onerror="this.src='https://placehold.co/600x400/f8fafc/1e293b?text=Screenshot+1'">
         <div class="gallery-caption" data-pt="Dashboard Principal" data-en="Main Dashboard">Dashboard Principal</div>
       </div>
 
       <!-- IMAGEM 2 -->
       <div class="gallery-item">
-        <img src="img/hubmanager/tela2.jpg" alt="Gestão de Tarefas" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Screenshot+2'">
+        <img src="img/hubmanager/tela2.jpg" alt="Gestão de Tarefas" onerror="this.src='https://placehold.co/600x400/f8fafc/1e293b?text=Screenshot+2'">
         <div class="gallery-caption" data-pt="Gestão de Tarefas" data-en="Task Management">Gestão de Tarefas</div>
       </div>
 
       <!-- IMAGEM 3 -->
       <div class="gallery-item">
-        <img src="img/hubmanager/tela3.jpg" alt="Relatórios" onerror="this.src='https://placehold.co/600x400/1a1a1a/FFF?text=Screenshot+3'">
+        <img src="img/hubmanager/tela3.jpg" alt="Relatórios" onerror="this.src='https://placehold.co/600x400/f8fafc/1e293b?text=Screenshot+3'">
         <div class="gallery-caption" data-pt="Relatórios Detalhados" data-en="Detailed Reports">Relatórios Detalhados</div>
       </div>
     </div>
   </section>
 
   <!-- MANIFESTO -->
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="Venda única, controle total" data-en="One-time sale, total control">Venda única, controle total</h2>
     <p data-pt="O Hub Manager não funciona por assinatura e não é um serviço compartilhado." data-en="Hub Manager does not work by subscription and is not a shared service.">
       O Hub Manager não funciona por assinatura e não é um serviço compartilhado.
@@ -361,7 +385,7 @@
   </section>
 
   <!-- LICENÇA ÚNICA -->
-    <section class="container">
+    <section class="container reveal">
     <h2 data-pt="Modelo de aquisição" data-en="Acquisition Model">Modelo de aquisição</h2>
 
     <div class="card">
@@ -381,7 +405,7 @@
   </section>
 
   <!-- PARA QUEM -->
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="Para quem este projeto faz sentido" data-en="Who this project makes sense for">Para quem este projeto faz sentido</h2>
     <ul>
       <li data-pt="Empreendedores que querem possuir um software próprio" data-en="Entrepreneurs who want to own their own software">Empreendedores que querem possuir um software próprio</li>
@@ -392,7 +416,7 @@
   </section>
 
   <!-- SOBRE -->
-  <section class="container">
+  <section class="container reveal">
     <h2 data-pt="Sobre o Desenvolvedor" data-en="About the Developer">Sobre o Desenvolvedor</h2>
     <p style="margin-bottom: 2rem;">
       <span data-pt="Sou" data-en="I am">Sou</span> <strong>Clarielton Pereira</strong>, <span data-pt="desenvolvedor, gestor e arquiteto de software." data-en="software developer, manager, and architect.">desenvolvedor, gestor e arquiteto de software.</span>
@@ -406,11 +430,11 @@
   </section>
 
   <!-- CTA -->
-  <section class="cta container">
+  <section class="cta container reveal">
     <a href="https://wa.me/5547996621559" data-pt="Fale comigo pelo WhatsApp " data-en="WhatsApp">WhatsApp</a>
   </section>
 
-  <footer>
+  <footer class="reveal">
     © Clarielton Pereira — <span data-pt="Desenvolvimento, Gestão e Arquitetura" data-en="Development, Management, and Architecture">Desenvolvimento, Gestão e Arquitetura</span>
   </footer>
 
@@ -454,6 +478,21 @@
         if (e.key === 'Escape') {
           closeLightbox();
         }
+      });
+
+      // Animation Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
       });
     });
 
